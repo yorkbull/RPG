@@ -106,12 +106,12 @@ DROITE = "droite", "right", "4"
 
 carte = {
           "A1": {
-            NOMZONE = ""
+            NOMZONE = "petit vilage de pecheur"
             DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
+            HAUT = ""
+            BAS = "A5"
+            GAUCHE = ""
+            DROITE = "A2"
           }
           "A2": {
             NOMZONE = ""
