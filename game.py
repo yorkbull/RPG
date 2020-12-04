@@ -82,11 +82,17 @@ def choixpays():
 ####################################################################################
 # Attribut du joueur au depart:
 
-HP = 100
-DEFENSE = 0
-ATTAQUE = 10
-INVENTAIRE = []
-ARME = []
+class player:
+    def __init__(self):
+        self.name = ''
+        self.HP = 100
+        self.DEFENSE = 0
+        self.ATTAQUE = 10
+        self.position = ""
+        self.INVENTAIRE = []
+        self.ARME = []
+        self.won = False
+player1 = player()
 
 ######################################################################################
 # map :
