@@ -8,7 +8,7 @@ def Menu():
   print("                                                           3: Credits")
   print("                                                           4: Quitter")
   print("                                                      -------------------------------")
-  Choix = int(input())
+  Choix = int(input(">"))
   if Choix == 1:
     LancerLeJeux()
   elif Choix == 2:
@@ -21,7 +21,7 @@ def Menu():
 def LancerLeJeux():
   print("")
   print("Qu'elle est ton nom jeune guerrier ?")
-  NomJoueur = Pseudo()
+  joueur1.nom = Pseudo()
   print("Tu a une tête bizarre , Tu viens d'ou ?")
   Depart = choixpays()
   print(Depart)
@@ -55,7 +55,7 @@ def Item():
 # intro :
 
 def Pseudo():
-  Nom = str(input())
+  Nom = str(input(">"))
   print("Bienvenu",Nom)
   return Nom
 
@@ -63,7 +63,7 @@ def choixpays():
     print("japon, tapez 1")
     print("chine, tapez 2")
     print("indonésie, tapez 3")
-    Pays = int(input())
+    Pays = int(input(">"))
     if Pays == 1:
         print("histoire pays 1") # depart A1
         return Pays
@@ -82,9 +82,9 @@ def choixpays():
 ####################################################################################
 # Attribut du joueur au depart:
 
-class player:
+class joueur:
     def __init__(self):
-        self.name = ''
+        self.nom = ''
         self.HP = 100
         self.DEFENSE = 0
         self.ATTAQUE = 10
@@ -92,7 +92,7 @@ class player:
         self.INVENTAIRE = []
         self.ARME = []
         self.won = False
-player1 = player()
+joueur1 = joueur()
 
 ######################################################################################
 # carte :
@@ -106,422 +106,439 @@ DROITE = "droite", "right", "4"
 
 carte = {
           "A1": {
-            NOMZONE = "petit vilage de pecheur"
-            DESCRIPTION = ""
-            HAUT = ""
-            BAS = "A5"
-            GAUCHE = ""
-            DROITE = "A2"
-          }
+              NOMZONE : "petit vilage de pecheur",
+              DESCRIPTION : "bla bla bla bla bla",
+              HAUT : "",
+              BAS : "A5",
+              GAUCHE : "",
+              DROITE : "A2",
+          },
           "A2": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+              NOMZONE : "",
+              DESCRIPTION : "",
+              HAUT : "",
+              BAS : "",
+              GAUCHE : "",
+              DROITE : "",
+          },
           "A3": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+              NOMZONE : "",
+              DESCRIPTION : "",
+              HAUT : "",
+              BAS : "",
+              GAUCHE : "",
+              DROITE : "",
+          },
           "A4": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+              NOMZONE : "",
+              DESCRIPTION : "",
+              HAUT : "",
+              BAS : "",
+              GAUCHE : "",
+              DROITE : "",
+          },
           "A5": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+              NOMZONE : "",
+              DESCRIPTION : "",
+              HAUT : "",
+              BAS : "",
+              GAUCHE : "",
+              DROITE : "",
+          },
           "A6": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+              NOMZONE : "",
+              DESCRIPTION : "",
+              HAUT : "",
+              BAS : "",
+              GAUCHE : "",
+              DROITE : "",
+          },
           "A7": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+              NOMZONE : "",
+              DESCRIPTION : "",
+              HAUT : "",
+              BAS : "",
+              GAUCHE : "",
+              DROITE : "",
+          },
           "A8": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+              NOMZONE : "",
+              DESCRIPTION : "",
+              HAUT : "",
+              BAS : "",
+              GAUCHE : "",
+              DROITE : "",
+          },
           "A9": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+              NOMZONE : "",
+              DESCRIPTION : "",
+              HAUT : "",
+              BAS : "",
+              GAUCHE : "",
+              DROITE : "",
+          },
           "A10": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+              NOMZONE : "",
+              DESCRIPTION : "",
+              HAUT : "",
+              BAS : "",
+              GAUCHE : "",
+              DROITE : "",
+          },
           "A11": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+              NOMZONE : "",
+              DESCRIPTION : "",
+              HAUT : "",
+              BAS : "",
+              GAUCHE : "",
+              DROITE : "",
+          },
           "A12": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+              NOMZONE : "",
+              DESCRIPTION : "",
+              HAUT : "",
+              BAS : "",
+              GAUCHE : "",
+              DROITE : "",
+          },
           "A13": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+              NOMZONE : "",
+              DESCRIPTION : "",
+              HAUT : "",
+              BAS : "",
+              GAUCHE : "",
+              DROITE : "",
+          },
           "A14": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+              NOMZONE : "",
+              DESCRIPTION : "",
+              HAUT : "",
+              BAS : "",
+              GAUCHE : "",
+              DROITE : "",
+          },
           "A15": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+              NOMZONE : "",
+              DESCRIPTION : "",
+              HAUT : "",
+              BAS : "",
+              GAUCHE : "",
+              DROITE : "",
+          },
           "A16": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+              NOMZONE : "",
+              DESCRIPTION : "",
+              HAUT : "",
+              BAS : "",
+              GAUCHE : "",
+              DROITE : "",
+          },
           "B1": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
           "B2": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
           "B3": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "3",
+            DROITE : "",
+          },
           "B4": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
           "B5": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
           "B6": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "1",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
           "B7": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
           "B8": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
           "B9": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
           "B10": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
           "B11": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
           "B12": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
           "B13": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
           "B14": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
           "B15": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
           "B16": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
           "C1": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
           "C2": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
           "C3": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
           "C4": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
           "C5": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
           "C6": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
           "C7": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }"C8": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }"C9": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }"C10": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }"C11": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }"C12": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }"C13": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }"C14": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }"C15": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }"C16": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }"P1": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }"P2": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }"P3": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }"P4": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }"Temple": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }"Boss": {
-            NOMZONE = ""
-            DESCRIPTION = ""
-            HAUT = "haut", "up", "1"
-            BAS = "bas", "down", "2"
-            GAUCHE = "gauche", "left", "3"
-            DROITE = "droite", "right", "4"
-          }
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
+          "C8": {
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
+          "C9": {
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
+          "C10": {
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
+          "C11": {
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
+          "C12": {
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
+          "C13": {
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
+          "C14": {
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
+          "C15": {
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
+          "C16": {
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
+          "P1": {
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
+          "P2": {
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
+          "P3": {
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
+          "P4": {
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
+          "Temple": {
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
+          "Boss": {
+            NOMZONE : "",
+            DESCRIPTION : "",
+            HAUT : "",
+            BAS : "",
+            GAUCHE : "",
+            DROITE : "",
+          },
+          
+
 }
 
 
