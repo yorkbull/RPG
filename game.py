@@ -1,6 +1,16 @@
+import cmd
+import textwrap
+import sys
+import os
+import time
+import random
+screen_width = 100
+
+
+
 ####################################################
 # Fonctions du menu :
-
+quitgame = "quit"
 def Menu():
   print("                                                     --------------------------------")
   print("                                                           1: Nouvelle partie")
@@ -23,8 +33,8 @@ def LancerLeJeux():
   print("Qu'elle est ton nom jeune guerrier ?")
   joueur1.nom = Pseudo()
   print("Tu a une tête bizarre , Tu viens d'ou ?")
-  Depart = choixpays()
-  print(Depart)
+  joueur1.position = choixpays()
+  main_game_loop()
 
 def ChargerPartie():
   print("TODO chargerpartir")
@@ -37,8 +47,66 @@ def Credits():
 def Quitter():
   print("TODO quitter")
 
+def main_game_loop():
+  joueur1.Boss == False
+  while joueur1.won is False:
+    #print_location()
+    prompt()
+
+def prompt():
+  if joueur1.Boss == False:
+    print("Something in the world seems to have changed. Hmm...")
+  print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~")
+  print("What would you like to do?")
+  action = input("> ")
+  acceptable_actions = ['move', 'go', 'travel', 'walk', 'quit']
+  #Forces the player to write an acceptable sign, as this is essential to solving a puzzle later.
+  while action.lower() not in acceptable_actions:
+    print("Unknown action command, please try again.\n")
+    action = input("> ")
+  if action.lower() == quitgame:
+    sys.exit()
+  elif action.lower() in ['move', 'go', 'travel', 'walk']:
+    move(action.lower())
+  
+
 ###########################################################################
 # Fonction de l'exploration :
+
+def print_location():
+    	# info de la position du joueur
+	print('\n' + ('#' * (4 +len(joueur1.position))))
+	print('# ' + joueur1.position.upper() + ' #')
+	print('#' * (4 +len(joueur1.position)))
+	print('\n' + (carte[joueur1.position][DESCRIPTION]))
+
+def move(myAction):
+  askString = "Where would you like to "+myAction+" to?\n> "
+  destination = input(askString)
+  if destination == 'haut':
+    move_dest = carte[joueur1.position][HAUT] 
+    move_player(move_dest)
+  elif destination == 'gauche':
+    move_dest = carte[joueur1.position][GAUCHE]
+    move_player(move_dest)
+  elif destination == 'droite':
+    move_dest = carte[joueur1.position][DROITE]
+    move_player(move_dest)
+  elif destination == 'bas':
+    move_dest = carte[joueur1.position][BAS]
+    move_player(move_dest)
+  else:
+    print("Invalid direction command, try using forward, back, left, or right.\n")
+    move(myAction)
+
+def move_player(move_dest):
+	print("\nYou have moved to the " + move_dest + ".")
+	joueur1.position = move_dest
+	print_location()
+
+
+###########################################################################
+# fonction de l'action ou item :
 
 def Event(Lieu):
   print("TODO Combat ou Item qui se passe quand on se deplace")
@@ -66,13 +134,13 @@ def choixpays():
     Pays = int(input(">"))
     if Pays == 1:
         print("histoire pays 1") # depart A1
-        return Pays
+        return "A1"
     elif Pays == 2:
         print("histoire pays 2") # depart B13
-        return Pays
+        return "A2"
     elif Pays == 3:
         print("histoire pays 3") # depart C16
-        return Pays
+        return "A3"
     else:
           print("Tu n'a pas compris la question ????")
           print("Je t'ai demander d'ou tu viens !!!!")
@@ -92,6 +160,7 @@ class joueur:
         self.INVENTAIRE = []
         self.ARME = []
         self.won = False
+        self.Boss = False
 joueur1 = joueur()
 
 ######################################################################################
@@ -99,10 +168,10 @@ joueur1 = joueur()
 
 NOMZONE = ""
 DESCRIPTION = ""
-HAUT = "haut", "up", "1"
-BAS = "bas", "down", "2"
-GAUCHE = "gauche", "left", "3"
-DROITE = "droite", "right", "4"
+HAUT = "haut", "up", "z"
+BAS = "bas", "down", "s"
+GAUCHE = "gauche", "left", "q"
+DROITE = "droite", "right", "d"
 
 carte = {
           "A1": {
@@ -117,256 +186,256 @@ carte = {
               NOMZONE : "",
               DESCRIPTION : "",
               HAUT : "",
-              BAS : "",
+              BAS : "A6",
               GAUCHE : "",
-              DROITE : "",
+              DROITE : "A3",
           },
           "A3": {
               NOMZONE : "",
               DESCRIPTION : "",
               HAUT : "",
-              BAS : "",
+              BAS : "A7",
               GAUCHE : "",
-              DROITE : "",
+              DROITE : "A4",
           },
           "A4": {
               NOMZONE : "",
               DESCRIPTION : "",
               HAUT : "",
-              BAS : "",
-              GAUCHE : "",
+              BAS : "A8",
+              GAUCHE : "A3",
               DROITE : "",
           },
           "A5": {
               NOMZONE : "",
               DESCRIPTION : "",
-              HAUT : "",
-              BAS : "",
+              HAUT : "A1",
+              BAS : "A9",
               GAUCHE : "",
-              DROITE : "",
+              DROITE : "A6",
           },
           "A6": {
               NOMZONE : "",
               DESCRIPTION : "",
-              HAUT : "",
-              BAS : "",
-              GAUCHE : "",
-              DROITE : "",
+              HAUT : "A2",
+              BAS : "A10",
+              GAUCHE : "A5",
+              DROITE : "A7",
           },
           "A7": {
               NOMZONE : "",
               DESCRIPTION : "",
-              HAUT : "",
-              BAS : "",
-              GAUCHE : "",
-              DROITE : "",
+              HAUT : "A3",
+              BAS : "A11",
+              GAUCHE : "A6",
+              DROITE : "A8",
           },
           "A8": {
               NOMZONE : "",
               DESCRIPTION : "",
-              HAUT : "",
-              BAS : "",
-              GAUCHE : "",
+              HAUT : "A4",
+              BAS : "A12",
+              GAUCHE : "A7",
               DROITE : "",
           },
           "A9": {
               NOMZONE : "",
               DESCRIPTION : "",
-              HAUT : "",
-              BAS : "",
+              HAUT : "A5",
+              BAS : "A13",
               GAUCHE : "",
-              DROITE : "",
+              DROITE : "A10",
           },
           "A10": {
               NOMZONE : "",
               DESCRIPTION : "",
-              HAUT : "",
-              BAS : "",
-              GAUCHE : "",
-              DROITE : "",
+              HAUT : "A6",
+              BAS : "A14",
+              GAUCHE : "A9",
+              DROITE : "A10",
           },
           "A11": {
               NOMZONE : "",
               DESCRIPTION : "",
-              HAUT : "",
-              BAS : "",
-              GAUCHE : "",
-              DROITE : "",
+              HAUT : "A7",
+              BAS : "A15",
+              GAUCHE : "A10",
+              DROITE : "A12",
           },
           "A12": {
               NOMZONE : "",
               DESCRIPTION : "",
-              HAUT : "",
-              BAS : "",
-              GAUCHE : "",
+              HAUT : "A8",
+              BAS : "A16",
+              GAUCHE : "A11",
               DROITE : "",
           },
           "A13": {
               NOMZONE : "",
               DESCRIPTION : "",
-              HAUT : "",
+              HAUT : "A9",
               BAS : "",
               GAUCHE : "",
-              DROITE : "",
+              DROITE : "A14",
           },
           "A14": {
               NOMZONE : "",
               DESCRIPTION : "",
-              HAUT : "",
+              HAUT : "A10",
               BAS : "",
-              GAUCHE : "",
-              DROITE : "",
+              GAUCHE : "A13",
+              DROITE : "A15",
           },
           "A15": {
               NOMZONE : "",
               DESCRIPTION : "",
-              HAUT : "",
+              HAUT : "A11",
               BAS : "",
-              GAUCHE : "",
-              DROITE : "",
+              GAUCHE : "A14",
+              DROITE : "A16",
           },
           "A16": {
               NOMZONE : "",
               DESCRIPTION : "",
-              HAUT : "",
-              BAS : "",
-              GAUCHE : "",
-              DROITE : "",
+              HAUT : "A12",
+              BAS : "P2",
+              GAUCHE : "A15",
+              DROITE : "P1",
           },
           "B1": {
             NOMZONE : "",
             DESCRIPTION : "",
             HAUT : "",
-            BAS : "",
+            BAS : "B5",
             GAUCHE : "",
-            DROITE : "",
+            DROITE : "B2",
           },
           "B2": {
             NOMZONE : "",
             DESCRIPTION : "",
             HAUT : "",
-            BAS : "",
-            GAUCHE : "",
-            DROITE : "",
+            BAS : "B6",
+            GAUCHE : "B1",
+            DROITE : "B3",
           },
           "B3": {
             NOMZONE : "",
             DESCRIPTION : "",
             HAUT : "",
-            BAS : "",
-            GAUCHE : "3",
-            DROITE : "",
+            BAS : "B7",
+            GAUCHE : "B2",
+            DROITE : "B4",
           },
           "B4": {
             NOMZONE : "",
             DESCRIPTION : "",
-            HAUT : "",
-            BAS : "",
-            GAUCHE : "",
-            DROITE : "",
+            HAUT : "P2",
+            BAS : "B8",
+            GAUCHE : "B3",
+            DROITE : "P3",
           },
           "B5": {
             NOMZONE : "",
             DESCRIPTION : "",
-            HAUT : "",
-            BAS : "",
+            HAUT : "B1",
+            BAS : "B9",
             GAUCHE : "",
-            DROITE : "",
+            DROITE : "B6",
           },
           "B6": {
             NOMZONE : "",
             DESCRIPTION : "",
-            HAUT : "1",
-            BAS : "",
-            GAUCHE : "",
-            DROITE : "",
+            HAUT : "B2",
+            BAS : "B10",
+            GAUCHE : "B5",
+            DROITE : "B7",
           },
           "B7": {
             NOMZONE : "",
             DESCRIPTION : "",
-            HAUT : "",
-            BAS : "",
-            GAUCHE : "",
-            DROITE : "",
+            HAUT : "B3",
+            BAS : "B11",
+            GAUCHE : "B6",
+            DROITE : "B8",
           },
           "B8": {
             NOMZONE : "",
             DESCRIPTION : "",
-            HAUT : "",
-            BAS : "",
-            GAUCHE : "",
+            HAUT : "B4",
+            BAS : "B12",
+            GAUCHE : "B7",
             DROITE : "",
           },
           "B9": {
             NOMZONE : "",
             DESCRIPTION : "",
-            HAUT : "",
-            BAS : "",
+            HAUT : "B5",
+            BAS : "B13",
             GAUCHE : "",
-            DROITE : "",
+            DROITE : "B10",
           },
           "B10": {
             NOMZONE : "",
             DESCRIPTION : "",
-            HAUT : "",
-            BAS : "",
-            GAUCHE : "",
-            DROITE : "",
+            HAUT : "B6",
+            BAS : "B14",
+            GAUCHE : "B9",
+            DROITE : "B11",
           },
           "B11": {
             NOMZONE : "",
             DESCRIPTION : "",
-            HAUT : "",
-            BAS : "",
-            GAUCHE : "",
-            DROITE : "",
+            HAUT : "B7",
+            BAS : "B15",
+            GAUCHE : "B10",
+            DROITE : "B12",
           },
           "B12": {
             NOMZONE : "",
             DESCRIPTION : "",
-            HAUT : "",
-            BAS : "",
-            GAUCHE : "",
+            HAUT : "B8",
+            BAS : "B16",
+            GAUCHE : "B11",
             DROITE : "",
           },
           "B13": {
             NOMZONE : "",
             DESCRIPTION : "",
-            HAUT : "",
+            HAUT : "B9",
             BAS : "",
             GAUCHE : "",
-            DROITE : "",
+            DROITE : "B14",
           },
           "B14": {
             NOMZONE : "",
             DESCRIPTION : "",
-            HAUT : "",
+            HAUT : "B10",
             BAS : "",
-            GAUCHE : "",
-            DROITE : "",
+            GAUCHE : "B13",
+            DROITE : "B15",
           },
           "B15": {
             NOMZONE : "",
             DESCRIPTION : "",
-            HAUT : "",
+            HAUT : "B11",
             BAS : "",
-            GAUCHE : "",
-            DROITE : "",
+            GAUCHE : "B14",
+            DROITE : "B16",
           },
           "B16": {
             NOMZONE : "",
             DESCRIPTION : "",
-            HAUT : "",
+            HAUT : "B12",
             BAS : "",
-            GAUCHE : "",
+            GAUCHE : "B15",
             DROITE : "",
           },
           "C1": {
             NOMZONE : "",
             DESCRIPTION : "",
-            HAUT : "Port Temple",
+            HAUT : "P4",
             BAS : "C5",
-            GAUCHE : "Port B",
+            GAUCHE : "P3",
             DROITE : "C2",
           },
           "C2": {
@@ -494,14 +563,14 @@ carte = {
             DESCRIPTION : "",
             HAUT : "",
             BAS : "",
-            GAUCHE : "",
-            DROITE : "",
+            GAUCHE : "A16",
+            DROITE : "Temple",
           },
           "P2": {
             NOMZONE : "",
             DESCRIPTION : "",
-            HAUT : "",
-            BAS : "",
+            HAUT : "A16",
+            BAS : "B4",
             GAUCHE : "",
             DROITE : "",
           },
@@ -510,14 +579,14 @@ carte = {
             DESCRIPTION : "",
             HAUT : "",
             BAS : "",
-            GAUCHE : "",
-            DROITE : "",
+            GAUCHE : "B4",
+            DROITE : "C1",
           },
           "P4": {
             NOMZONE : "",
             DESCRIPTION : "",
-            HAUT : "",
-            BAS : "",
+            HAUT : "Temple",
+            BAS : "C1",
             GAUCHE : "",
             DROITE : "",
           },
@@ -525,8 +594,8 @@ carte = {
             NOMZONE : "",
             DESCRIPTION : "",
             HAUT : "",
-            BAS : "",
-            GAUCHE : "",
+            BAS : "P4",
+            GAUCHE : "P1",
             DROITE : "",
           },
           "Boss": {
@@ -534,7 +603,7 @@ carte = {
             DESCRIPTION : "",
             HAUT : "",
             BAS : "",
-            GAUCHE : "",
+            GAUCHE : "Temple",
             DROITE : "",
           },
           
