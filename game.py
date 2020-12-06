@@ -55,18 +55,17 @@ def main_game_loop():
 
 def prompt():
   if joueur1.Boss == False:
-    print("Something in the world seems to have changed. Hmm...")
+    print("Ne présume pas de tes forces, entraine toi encore !!!!")
   print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~")
-  print("What would you like to do?")
+  print("Que veux-tu faire?")
   action = input("> ")
-  acceptable_actions = ['move', 'go', 'travel', 'walk', 'quit']
-  #Forces the player to write an acceptable sign, as this is essential to solving a puzzle later.
+  acceptable_actions = ["move", "go", "travel", "walk", "aller", "quit"]
   while action.lower() not in acceptable_actions:
-    print("Unknown action command, please try again.\n")
+    print("Action inconnue, Essaye encore.\n")
     action = input("> ")
   if action.lower() == quitgame:
     sys.exit()
-  elif action.lower() in ['move', 'go', 'travel', 'walk']:
+  elif action.lower() in ["move", "go", "travel", "walk", "aller"]:
     move(action.lower())
   
 
@@ -75,32 +74,32 @@ def prompt():
 
 def print_location():
     	# info de la position du joueur
-	print('\n' + ('#' * (4 +len(joueur1.position))))
-	print('# ' + joueur1.position.upper() + ' #')
-	print('#' * (4 +len(joueur1.position)))
-	print('\n' + (carte[joueur1.position][DESCRIPTION]))
+	print("\n" + ("#" * (4 +len(joueur1.position))))
+	print("# " + joueur1.position.upper() + " #")
+	print("#" * (4 +len(joueur1.position)))
+	print("\n" + (carte[joueur1.position][DESCRIPTION]))
 
 def move(myAction):
-  askString = "Where would you like to "+myAction+" to?\n> "
+  askString = "Ou veux-tu aller "+myAction+"?\n> "
   destination = input(askString)
-  if destination == 'haut':
+  if destination == "haut":
     move_dest = carte[joueur1.position][HAUT] 
     move_player(move_dest)
-  elif destination == 'gauche':
+  elif destination == "gauche":
     move_dest = carte[joueur1.position][GAUCHE]
     move_player(move_dest)
-  elif destination == 'droite':
+  elif destination == "droite":
     move_dest = carte[joueur1.position][DROITE]
     move_player(move_dest)
-  elif destination == 'bas':
+  elif destination == "bas":
     move_dest = carte[joueur1.position][BAS]
     move_player(move_dest)
   else:
-    print("Invalid direction command, try using forward, back, left, or right.\n")
+    print("Je ne comprend pas, essaye haut, bas, gauche, ou droite.\n")
     move(myAction)
 
 def move_player(move_dest):
-	print("\nYou have moved to the " + move_dest + ".")
+	print("\nTu est en " + move_dest + ".")
 	joueur1.position = move_dest
 	print_location()
 
@@ -137,10 +136,10 @@ def choixpays():
         return "A1"
     elif Pays == 2:
         print("histoire pays 2") # depart B13
-        return "A2"
+        return "B13"
     elif Pays == 3:
         print("histoire pays 3") # depart C16
-        return "A3"
+        return "C16"
     else:
           print("Tu n'a pas compris la question ????")
           print("Je t'ai demander d'ou tu viens !!!!")
@@ -152,7 +151,7 @@ def choixpays():
 
 class joueur:
     def __init__(self):
-        self.nom = ''
+        self.nom = ""
         self.HP = 100
         self.DEFENSE = 0
         self.ATTAQUE = 10
