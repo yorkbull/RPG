@@ -7,6 +7,8 @@ HAUT = "haut", "up", "z"
 BAS = "bas", "down", "s"
 GAUCHE = "gauche", "left", "q"
 DROITE = "droite", "right", "d"
+MAITRE = ""
+COMBAT = ""
 
 carte = {
           "A1": {

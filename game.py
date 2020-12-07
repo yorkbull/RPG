@@ -57,14 +57,17 @@ def jeupasfini():
     print("Ne présume pas de tes forces, entraine toi encore !!!!")
   print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~")
   print("Que veux-tu faire?")
+  print("aller")
+  print("combat")
+  print("parler")
   action = input("> ")
-  acceptable_actions = ["move", "go", "travel", "walk", "aller", "quit"]
+  acceptable_actions = ["aller", "combat", "parler" ,"quit"]
   while action.lower() not in acceptable_actions:
     print("Action inconnue, Essaye encore.\n")
     action = input("> ")
   if action.lower() == quitgame:
     sys.exit()
-  elif action.lower() in ["move", "go", "travel", "walk", "aller"]:
+  elif action.lower() in ["aller"]:
     move(action.lower())
   
 
@@ -90,12 +93,14 @@ def move(myAction):
     move_dest = carte[joueur1.position][HAUT]
     if move_dest == "False":
       print("tu va dans le mur")
+      print("choisi un autre chemin.")
       move(myAction) 
     move_player(move_dest)   
   elif destination == "gauche":
     move_dest = carte[joueur1.position][GAUCHE]
     if move_dest == "False":
       print("tu va dans le mur")
+      print("choisi un autre chemin.")
       move(myAction)
     move_player(move_dest)
   elif destination == "droite":
@@ -109,6 +114,7 @@ def move(myAction):
     move_dest = carte[joueur1.position][BAS]
     if move_dest == "False":
       print("tu va dans le mur")
+      print("choisi un autre chemin.")
       move(myAction)
     move_player(move_dest)
   else:
@@ -124,7 +130,7 @@ def move_player(move_dest):
 ###########################################################################
 # fonction de l'action ou item :
 
-def Event(Lieu):
+def Event():
   print("TODO Combat ou Item qui se passe quand on se deplace")
   Combat()
   Item()
