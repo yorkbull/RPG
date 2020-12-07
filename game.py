@@ -55,17 +55,18 @@ def main_game_loop():
 
 def prompt():
   if joueur1.Boss == False:
-    print("Ne présume pas de tes forces, entraine toi encore !!!!")
+    print("Something in the world seems to have changed. Hmm...")
   print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~")
-  print("Que veux-tu faire?")
+  print("What would you like to do?")
   action = input("> ")
-  acceptable_actions = ["move", "go", "travel", "walk", "aller", "quit"]
+  acceptable_actions = ['move', 'go', 'travel', 'walk', 'quit']
+  #Forces the player to write an acceptable sign, as this is essential to solving a puzzle later.
   while action.lower() not in acceptable_actions:
-    print("Action inconnue, Essaye encore.\n")
+    print("Unknown action command, please try again.\n")
     action = input("> ")
   if action.lower() == quitgame:
     sys.exit()
-  elif action.lower() in ["move", "go", "travel", "walk", "aller"]:
+  elif action.lower() in ['move', 'go', 'travel', 'walk']:
     move(action.lower())
   
 
@@ -74,32 +75,32 @@ def prompt():
 
 def print_location():
     	# info de la position du joueur
-	print("\n" + ("#" * (4 +len(joueur1.position))))
-	print("# " + joueur1.position.upper() + " #")
-	print("#" * (4 +len(joueur1.position)))
-	print("\n" + (carte[joueur1.position][DESCRIPTION]))
+	print('\n' + ('#' * (4 +len(joueur1.position))))
+	print('# ' + joueur1.position.upper() + ' #')
+	print('#' * (4 +len(joueur1.position)))
+	print('\n' + (carte[joueur1.position][DESCRIPTION]))
 
 def move(myAction):
-  askString = "Ou veux-tu aller "+myAction+"?\n> "
+  askString = "Where would you like to "+myAction+" to?\n> "
   destination = input(askString)
-  if destination == "haut":
+  if destination == 'haut':
     move_dest = carte[joueur1.position][HAUT] 
     move_player(move_dest)
-  elif destination == "gauche":
+  elif destination == 'gauche':
     move_dest = carte[joueur1.position][GAUCHE]
     move_player(move_dest)
-  elif destination == "droite":
+  elif destination == 'droite':
     move_dest = carte[joueur1.position][DROITE]
     move_player(move_dest)
-  elif destination == "bas":
+  elif destination == 'bas':
     move_dest = carte[joueur1.position][BAS]
     move_player(move_dest)
   else:
-    print("Je ne comprend pas, essaye haut, bas, gauche, ou droite.\n")
+    print("Invalid direction command, try using forward, back, left, or right.\n")
     move(myAction)
 
 def move_player(move_dest):
-	print("\nTu est en " + move_dest + ".")
+	print("\nYou have moved to the " + move_dest + ".")
 	joueur1.position = move_dest
 	print_location()
 
@@ -136,10 +137,10 @@ def choixpays():
         return "A1"
     elif Pays == 2:
         print("histoire pays 2") # depart B13
-        return "B13"
+        return "A2"
     elif Pays == 3:
         print("histoire pays 3") # depart C16
-        return "C16"
+        return "A3"
     else:
           print("Tu n'a pas compris la question ????")
           print("Je t'ai demander d'ou tu viens !!!!")
@@ -151,7 +152,7 @@ def choixpays():
 
 class joueur:
     def __init__(self):
-        self.nom = ""
+        self.nom = ''
         self.HP = 100
         self.DEFENSE = 0
         self.ATTAQUE = 10
@@ -171,7 +172,9 @@ HAUT = "haut", "up", "z"
 BAS = "bas", "down", "s"
 GAUCHE = "gauche", "left", "q"
 DROITE = "droite", "right", "d"
-
+# Chine l'eau avec ces fleuves et cascades 
+#Indonésie le Feu avec ces Volcans
+#Japon air ? terre ? 
 carte = {
           "A1": {
               NOMZONE : "petit vilage de pecheur",
@@ -302,7 +305,7 @@ carte = {
               DROITE : "P1",
           },
           "B1": {
-            NOMZONE : "",
+            NOMZONE : "les Collines de Yangshuo",
             DESCRIPTION : "",
             HAUT : "",
             BAS : "B5",
@@ -310,7 +313,7 @@ carte = {
             DROITE : "B2",
           },
           "B2": {
-            NOMZONE : "",
+            NOMZONE : "La Vieille Ville sur l'eau de Fenghuang",
             DESCRIPTION : "",
             HAUT : "",
             BAS : "B6",
@@ -318,7 +321,7 @@ carte = {
             DROITE : "B3",
           },
           "B3": {
-            NOMZONE : "",
+            NOMZONE : "La Fôret de Xueling",
             DESCRIPTION : "",
             HAUT : "",
             BAS : "B7",
@@ -326,7 +329,7 @@ carte = {
             DROITE : "B4",
           },
           "B4": {
-            NOMZONE : "",
+            NOMZONE : "Plage de Qingdao",
             DESCRIPTION : "",
             HAUT : "P2",
             BAS : "B8",
@@ -334,7 +337,7 @@ carte = {
             DROITE : "P3",
           },
           "B5": {
-            NOMZONE : "",
+            NOMZONE : "Les Chutes d'Eau Huangguoshu",
             DESCRIPTION : "",
             HAUT : "B1",
             BAS : "B9",
@@ -350,7 +353,7 @@ carte = {
             DROITE : "B7",
           },
           "B7": {
-            NOMZONE : "",
+            NOMZONE : "La Vallée de Jiuzhaigou",
             DESCRIPTION : "",
             HAUT : "B3",
             BAS : "B11",
@@ -358,7 +361,7 @@ carte = {
             DROITE : "B8",
           },
           "B8": {
-            NOMZONE : "",
+            NOMZONE : "Les Montagnes du Tiashan",
             DESCRIPTION : "",
             HAUT : "B4",
             BAS : "B12",
@@ -366,7 +369,7 @@ carte = {
             DROITE : "",
           },
           "B9": {
-            NOMZONE : "",
+            NOMZONE : "Fleuve du Yangzi Jiang",
             DESCRIPTION : "",
             HAUT : "B5",
             BAS : "B13",
@@ -374,7 +377,7 @@ carte = {
             DROITE : "B10",
           },
           "B10": {
-            NOMZONE : "",
+            NOMZONE : "La Cité Interdite",
             DESCRIPTION : "",
             HAUT : "B6",
             BAS : "B14",
@@ -382,7 +385,7 @@ carte = {
             DROITE : "B11",
           },
           "B11": {
-            NOMZONE : "",
+            NOMZONE : "La Grande Muraille",
             DESCRIPTION : "",
             HAUT : "B7",
             BAS : "B15",
@@ -390,7 +393,7 @@ carte = {
             DROITE : "B12",
           },
           "B12": {
-            NOMZONE : "",
+            NOMZONE : "Temple du Ciel Shaoline",
             DESCRIPTION : "",
             HAUT : "B8",
             BAS : "B16",
@@ -398,7 +401,7 @@ carte = {
             DROITE : "",
           },
           "B13": {
-            NOMZONE : "",
+            NOMZONE : "Village de Pêcheur",
             DESCRIPTION : "",
             HAUT : "B9",
             BAS : "",
@@ -406,7 +409,7 @@ carte = {
             DROITE : "B14",
           },
           "B14": {
-            NOMZONE : "",
+            NOMZONE : "Le Palais du Potala ",
             DESCRIPTION : "",
             HAUT : "B10",
             BAS : "",
@@ -414,7 +417,7 @@ carte = {
             DROITE : "B15",
           },
           "B15": {
-            NOMZONE : "",
+            NOMZONE : "Monastère des 10000 Bouddhas",
             DESCRIPTION : "",
             HAUT : "B11",
             BAS : "",
@@ -422,7 +425,7 @@ carte = {
             DROITE : "B16",
           },
           "B16": {
-            NOMZONE : "",
+            NOMZONE : "Les Falaises de Xuankong",
             DESCRIPTION : "",
             HAUT : "B12",
             BAS : "",
@@ -430,7 +433,7 @@ carte = {
             DROITE : "",
           },
           "C1": {
-            NOMZONE : "",
+            NOMZONE : "Plage de Raja Ampat",
             DESCRIPTION : "",
             HAUT : "P4",
             BAS : "C5",
@@ -438,7 +441,7 @@ carte = {
             DROITE : "C2",
           },
           "C2": {
-            NOMZONE : "",
+            NOMZONE : "La Jungle de Kawah Ijen",
             DESCRIPTION : "",
             HAUT : "",
             BAS : "C6",
@@ -446,7 +449,7 @@ carte = {
             DROITE : "C3",
           },
           "C3": {
-            NOMZONE : "",
+            NOMZONE : "La Cité des Singes",
             DESCRIPTION : "",
             HAUT : "",
             BAS : "C7",
@@ -454,7 +457,7 @@ carte = {
             DROITE : "C4",
           },
           "C4": {
-            NOMZONE : "",
+            NOMZONE : "Le Chateau des Démons",
             DESCRIPTION : "",
             HAUT : "",
             BAS : "C8",
@@ -462,7 +465,7 @@ carte = {
             DROITE : "",
           },
           "C5": {
-            NOMZONE : "",
+            NOMZONE : "Le Sanctuaire de Candi Mendut",
             DESCRIPTION : "",
             HAUT : "C1",
             BAS : "C9",
@@ -470,7 +473,7 @@ carte = {
             DROITE : "C6",
           },
           "C6": {
-            NOMZONE : "",
+            NOMZONE : "Les Grottes de Leang-Leang",
             DESCRIPTION : "",
             HAUT : "C2",
             BAS : "C10",
@@ -478,7 +481,7 @@ carte = {
             DROITE : "C7",
           },
           "C7": {
-            NOMZONE : "",
+            NOMZONE : "Les plaines du Dragon de Komodo",
             DESCRIPTION : "",
             HAUT : "C3",
             BAS : "C11",
@@ -486,7 +489,7 @@ carte = {
             DROITE : "C8",
           },
           "C8": {
-            NOMZONE : "",
+            NOMZONE : "Les Ruines du Borobudur",
             DESCRIPTION : "",
             HAUT : "C4",
             BAS : "C12",
@@ -494,7 +497,7 @@ carte = {
             DROITE : "",
           },
           "C9": {
-            NOMZONE : "",
+            NOMZONE : "Les Montagnes de Bromo",
             DESCRIPTION : "",
             HAUT : "C5",
             BAS : "C13",
@@ -502,7 +505,7 @@ carte = {
             DROITE : "C10",
           },
           "C10": {
-            NOMZONE : "",
+            NOMZONE : "Volcan du Krakatoa",
             DESCRIPTION : "",
             HAUT : "C6",
             BAS : "C14",
@@ -510,7 +513,7 @@ carte = {
             DROITE : "C11",
           },
           "C11": {
-            NOMZONE : "",
+            NOMZONE : "Les bassins d'eaux Sacrées de Pura Tirta Empul",
             DESCRIPTION : "",
             HAUT : "C7",
             BAS : "C15",
@@ -518,7 +521,7 @@ carte = {
             DROITE : "C12",
           },
           "C12": {
-            NOMZONE : "",
+            NOMZONE : "La Fôret de Kalimantan",
             DESCRIPTION : "",
             HAUT : "C8",
             BAS : "C16",
@@ -526,7 +529,7 @@ carte = {
             DROITE : "",
           },
           "C13": {
-            NOMZONE : "",
+            NOMZONE : "Les Valées du Baliem",
             DESCRIPTION : "",
             HAUT : "C9",
             BAS : "",
@@ -534,7 +537,7 @@ carte = {
             DROITE : "C14",
           },
           "C14": {
-            NOMZONE : "",
+            NOMZONE : "Le Village de Sulawesi",
             DESCRIPTION : "",
             HAUT : "C10",
             BAS : "",
@@ -542,7 +545,7 @@ carte = {
             DROITE : "C15",
           },
           "C15": {
-            NOMZONE : "",
+            NOMZONE : "Les Rizières de Jatiluwih",
             DESCRIPTION : "",
             HAUT : "C11",
             BAS : "",
@@ -550,7 +553,7 @@ carte = {
             DROITE : "C16",
           },
           "C16": {
-            NOMZONE : "",
+            NOMZONE : "Village de Pêcheur abandonné",
             DESCRIPTION : "",
             HAUT : "C12",
             BAS : "",
@@ -582,7 +585,7 @@ carte = {
             DROITE : "C1",
           },
           "P4": {
-            NOMZONE : "",
+            NOMZONE : "Port de Gili trawangan",
             DESCRIPTION : "",
             HAUT : "Temple",
             BAS : "C1",
