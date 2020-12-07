@@ -79,19 +79,37 @@ def print_location():
 	print("\n" + (carte[joueur1.position][DESCRIPTION]))
 
 def move(myAction):
+  print("haut" + (carte[joueur1.position][HAUT] ))
+  print("bas" + (carte[joueur1.position][BAS] ))
+  print("gauche" + (carte[joueur1.position][GAUCHE] ))
+  print("droite" + (carte[joueur1.position][DROITE] ))
+
   askString = "Ou veux-tu aller "+myAction+"?\n> "
   destination = input(askString)
   if destination == "haut":
-    move_dest = carte[joueur1.position][HAUT] 
-    move_player(move_dest)
+    move_dest = carte[joueur1.position][HAUT]
+    if move_dest == "False":
+      print("tu va dans le mur")
+      move(myAction) 
+    move_player(move_dest)   
   elif destination == "gauche":
     move_dest = carte[joueur1.position][GAUCHE]
+    if move_dest == "False":
+      print("tu va dans le mur")
+      move(myAction)
     move_player(move_dest)
   elif destination == "droite":
     move_dest = carte[joueur1.position][DROITE]
+    if move_dest == "False":
+      print("tu va dans le mur")
+      print("choisi un autre chemin.")
+      move(myAction)
     move_player(move_dest)
   elif destination == "bas":
     move_dest = carte[joueur1.position][BAS]
+    if move_dest == "False":
+      print("tu va dans le mur")
+      move(myAction)
     move_player(move_dest)
   else:
     print("Je ne comprend pas, essaye haut, bas, gauche, ou droite.\n")
