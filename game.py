@@ -301,7 +301,7 @@ carte = {
               DROITE : "P1",
           },
           "B1": {
-            NOMZONE : "",
+            NOMZONE : "les Collines de Yangshuo",
             DESCRIPTION : "",
             HAUT : "",
             BAS : "B5",
@@ -309,7 +309,7 @@ carte = {
             DROITE : "B2",
           },
           "B2": {
-            NOMZONE : "",
+            NOMZONE : "La Vieille Ville sur l'eau de Fenghuang",
             DESCRIPTION : "",
             HAUT : "",
             BAS : "B6",
@@ -317,7 +317,7 @@ carte = {
             DROITE : "B3",
           },
           "B3": {
-            NOMZONE : "",
+            NOMZONE : "La Fôret de Xueling",
             DESCRIPTION : "",
             HAUT : "",
             BAS : "B7",
@@ -325,7 +325,7 @@ carte = {
             DROITE : "B4",
           },
           "B4": {
-            NOMZONE : "",
+            NOMZONE : "Plage de Qingdao",
             DESCRIPTION : "",
             HAUT : "P2",
             BAS : "B8",
@@ -333,7 +333,7 @@ carte = {
             DROITE : "P3",
           },
           "B5": {
-            NOMZONE : "",
+            NOMZONE : "Les Chutes d'Eau Huangguoshu",
             DESCRIPTION : "",
             HAUT : "B1",
             BAS : "B9",
@@ -349,7 +349,7 @@ carte = {
             DROITE : "B7",
           },
           "B7": {
-            NOMZONE : "",
+            NOMZONE : "La Vallée de Jiuzhaigou",
             DESCRIPTION : "",
             HAUT : "B3",
             BAS : "B11",
@@ -357,7 +357,7 @@ carte = {
             DROITE : "B8",
           },
           "B8": {
-            NOMZONE : "",
+            NOMZONE : "Les Montagnes du Tiashan",
             DESCRIPTION : "",
             HAUT : "B4",
             BAS : "B12",
@@ -365,7 +365,7 @@ carte = {
             DROITE : "",
           },
           "B9": {
-            NOMZONE : "",
+            NOMZONE : "Fleuve du Yangzi Jiang",
             DESCRIPTION : "",
             HAUT : "B5",
             BAS : "B13",
@@ -373,7 +373,7 @@ carte = {
             DROITE : "B10",
           },
           "B10": {
-            NOMZONE : "",
+            NOMZONE : "La Cité Interdite",
             DESCRIPTION : "",
             HAUT : "B6",
             BAS : "B14",
@@ -381,7 +381,7 @@ carte = {
             DROITE : "B11",
           },
           "B11": {
-            NOMZONE : "",
+            NOMZONE : "La Grande Muraille",
             DESCRIPTION : "",
             HAUT : "B7",
             BAS : "B15",
@@ -389,7 +389,7 @@ carte = {
             DROITE : "B12",
           },
           "B12": {
-            NOMZONE : "",
+            NOMZONE : "Temple du Ciel Shaoline",
             DESCRIPTION : "",
             HAUT : "B8",
             BAS : "B16",
@@ -397,7 +397,7 @@ carte = {
             DROITE : "",
           },
           "B13": {
-            NOMZONE : "",
+            NOMZONE : "Village de Pêcheur",
             DESCRIPTION : "",
             HAUT : "B9",
             BAS : "",
@@ -405,7 +405,7 @@ carte = {
             DROITE : "B14",
           },
           "B14": {
-            NOMZONE : "",
+            NOMZONE : "Le Palais du Potala",
             DESCRIPTION : "",
             HAUT : "B10",
             BAS : "",
@@ -413,7 +413,7 @@ carte = {
             DROITE : "B15",
           },
           "B15": {
-            NOMZONE : "",
+            NOMZONE : "Monastère des 10000 Bouddhas",
             DESCRIPTION : "",
             HAUT : "B11",
             BAS : "",
@@ -421,7 +421,7 @@ carte = {
             DROITE : "B16",
           },
           "B16": {
-            NOMZONE : "",
+            NOMZONE : "Les Falaises de Xuankong",
             DESCRIPTION : "",
             HAUT : "B12",
             BAS : "",
@@ -430,14 +430,14 @@ carte = {
           },
           "C1": {
             NOMZONE : "",
-            DESCRIPTION : "",
+            DESCRIPTION : "Plage de Raja Ampat",
             HAUT : "P4",
             BAS : "C5",
             GAUCHE : "P3",
             DROITE : "C2",
           },
           "C2": {
-            NOMZONE : "",
+            NOMZONE : "La Jungle de Kawah Ijen",
             DESCRIPTION : "",
             HAUT : "",
             BAS : "C6",
@@ -446,14 +446,14 @@ carte = {
           },
           "C3": {
             NOMZONE : "",
-            DESCRIPTION : "",
+            DESCRIPTION : "La Cité des Singes",
             HAUT : "",
             BAS : "C7",
             GAUCHE : "C2",
             DROITE : "C4",
           },
           "C4": {
-            NOMZONE : "",
+            NOMZONE : "Le Chateau des Démons",
             DESCRIPTION : "",
             HAUT : "",
             BAS : "C8",
@@ -461,7 +461,7 @@ carte = {
             DROITE : "",
           },
           "C5": {
-            NOMZONE : "",
+            NOMZONE : "Le Sanctuaire de Candi Mendut",
             DESCRIPTION : "",
             HAUT : "C1",
             BAS : "C9",
@@ -469,7 +469,7 @@ carte = {
             DROITE : "C6",
           },
           "C6": {
-            NOMZONE : "",
+            NOMZONE : "Les Grottes de Leang-Leang",
             DESCRIPTION : "",
             HAUT : "C2",
             BAS : "C10",
@@ -477,7 +477,7 @@ carte = {
             DROITE : "C7",
           },
           "C7": {
-            NOMZONE : "",
+            NOMZONE : "Les plaines du Dragon de Komodo",
             DESCRIPTION : "",
             HAUT : "C3",
             BAS : "C11",
@@ -485,7 +485,7 @@ carte = {
             DROITE : "C8",
           },
           "C8": {
-            NOMZONE : "La ville",
+            NOMZONE : "Les Ruines du Borobudur",
             DESCRIPTION : "",
             HAUT : "C4",
             BAS : "C12",
@@ -493,7 +493,7 @@ carte = {
             DROITE : "",
           },
           "C9": {
-            NOMZONE : "",
+            NOMZONE : "Les Montagnes de Bromo",
             DESCRIPTION : "",
             HAUT : "C5",
             BAS : "C13",
@@ -501,7 +501,7 @@ carte = {
             DROITE : "C10",
           },
           "C10": {
-            NOMZONE : "",
+            NOMZONE : "Volcan du Krakatoa",
             DESCRIPTION : "",
             HAUT : "C6",
             BAS : "C14",
@@ -509,7 +509,7 @@ carte = {
             DROITE : "C11",
           },
           "C11": {
-            NOMZONE : "",
+            NOMZONE : "Les bassins d'eaux Sacrées de Pura Tirta Empul",
             DESCRIPTION : "",
             HAUT : "C7",
             BAS : "C15",
@@ -517,7 +517,7 @@ carte = {
             DROITE : "C12",
           },
           "C12": {
-            NOMZONE : "",
+            NOMZONE : "La Fôret de Kalimantan",
             DESCRIPTION : "",
             HAUT : "C8",
             BAS : "C16",
@@ -525,7 +525,7 @@ carte = {
             DROITE : "",
           },
           "C13": {
-            NOMZONE : "",
+            NOMZONE : "Les Valées du Baliem",
             DESCRIPTION : "",
             HAUT : "C9",
             BAS : "",
@@ -533,7 +533,7 @@ carte = {
             DROITE : "C14",
           },
           "C14": {
-            NOMZONE : "",
+            NOMZONE : "Le Village de Sulawesi",
             DESCRIPTION : "",
             HAUT : "C10",
             BAS : "",
@@ -541,7 +541,7 @@ carte = {
             DROITE : "C15",
           },
           "C15": {
-            NOMZONE : "",
+            NOMZONE : "Les Rizières de Jatiluwih",
             DESCRIPTION : "",
             HAUT : "C11",
             BAS : "",
@@ -549,7 +549,7 @@ carte = {
             DROITE : "C16",
           },
           "C16": {
-            NOMZONE : "",
+            NOMZONE : "Village de Pêcheur abandonné",
             DESCRIPTION : "",
             HAUT : "C12",
             BAS : "",
@@ -581,7 +581,7 @@ carte = {
             DROITE : "C1",
           },
           "P4": {
-            NOMZONE : "",
+            NOMZONE : "Port de Gili trawangan",
             DESCRIPTION : "",
             HAUT : "Temple",
             BAS : "C1",
