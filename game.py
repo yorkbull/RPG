@@ -1,6 +1,16 @@
+import cmd
+import textwrap
+import sys
+import os
+import random
+from carte import *
+screen_width = 100
+
+
+
 ####################################################
 # Fonctions du menu :
-
+quitgame = "quit"
 def Menu():
   print("                                                     --------------------------------")
   print("                                                           1: Nouvelle partie")
@@ -8,7 +18,7 @@ def Menu():
   print("                                                           3: Credits")
   print("                                                           4: Quitter")
   print("                                                      -------------------------------")
-  Choix = int(input())
+  Choix = int(input(">"))
   if Choix == 1:
     LancerLeJeux()
   elif Choix == 2:
@@ -21,10 +31,10 @@ def Menu():
 def LancerLeJeux():
   print("")
   print("Qu'elle est ton nom jeune guerrier ?")
-  NomJoueur = Pseudo()
+  joueur1.nom = Pseudo()
   print("Tu a une tête bizarre , Tu viens d'ou ?")
-  Depart = choixpays()
-  print(Depart)
+  joueur1.position = choixpays()
+  main_game_loop()
 
 def ChargerPartie():
   print("TODO chargerpartir")
@@ -37,8 +47,85 @@ def Credits():
 def Quitter():
   print("TODO quitter")
 
+def main_game_loop():
+  joueur1.Boss == False
+  while joueur1.won is False:
+    jeupasfini()
+
+def jeupasfini():
+  if joueur1.Boss == False:
+    print("Ne présume pas de tes forces, entraine toi encore !!!!")
+  print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~")
+  print("Que veux-tu faire?")
+  action = input("> ")
+  acceptable_actions = ["move", "go", "travel", "walk", "aller", "quit"]
+  while action.lower() not in acceptable_actions:
+    print("Action inconnue, Essaye encore.\n")
+    action = input("> ")
+  if action.lower() == quitgame:
+    sys.exit()
+  elif action.lower() in ["move", "go", "travel", "walk", "aller"]:
+    move(action.lower())
+  
+
 ###########################################################################
 # Fonction de l'exploration :
+
+def print_location():
+    	# info de la position du joueur
+	print("\n" + ("#" * (4 +len(joueur1.position))))
+	print("# " + joueur1.position.upper() + " #")
+	print("#" * (4 +len(joueur1.position)))
+	print("\n" + (carte[joueur1.position][DESCRIPTION]))
+
+def move(myAction):
+  print("haut" + (carte[joueur1.position][HAUT] ))
+  print("bas" + (carte[joueur1.position][BAS] ))
+  print("gauche" + (carte[joueur1.position][GAUCHE] ))
+  print("droite" + (carte[joueur1.position][DROITE] ))
+
+  askString = "Ou veux-tu aller "+myAction+"?\n> "
+  destination = input(askString)
+  if destination == "haut":
+    move_dest = carte[joueur1.position][HAUT]
+    if move_dest == "False":
+      print("tu va dans le mur")
+      print("choisi un autre chemin.")
+      move(myAction) 
+    move_player(move_dest)   
+  elif destination == "gauche":
+    move_dest = carte[joueur1.position][GAUCHE]
+    if move_dest == "False":
+      print("tu va dans le mur")
+      print("choisi un autre chemin.")
+      move(myAction)
+    move_player(move_dest)
+  elif destination == "droite":
+    move_dest = carte[joueur1.position][DROITE]
+    if move_dest == "False":
+      print("tu va dans le mur")
+      print("choisi un autre chemin.")
+      move(myAction)
+    move_player(move_dest)
+  elif destination == "bas":
+    move_dest = carte[joueur1.position][BAS]
+    if move_dest == "False":
+      print("tu va dans le mur")
+      print("choisi un autre chemin.")
+      move(myAction)
+    move_player(move_dest)
+  else:
+    print("Je ne comprend pas, essaye haut, bas, gauche, ou droite.\n")
+    move(myAction)
+
+def move_player(move_dest):
+	print("\nTu est en " + move_dest + ".")
+	joueur1.position = move_dest
+	print_location()
+
+
+###########################################################################
+# fonction de l'action ou item :
 
 def Event(Lieu):
   print("TODO Combat ou Item qui se passe quand on se deplace")
@@ -55,7 +142,7 @@ def Item():
 # intro :
 
 def Pseudo():
-  Nom = str(input())
+  Nom = str(input(">"))
   print("Bienvenu",Nom)
   return Nom
 
@@ -63,16 +150,16 @@ def choixpays():
     print("japon, tapez 1")
     print("chine, tapez 2")
     print("indonésie, tapez 3")
-    Pays = int(input())
+    Pays = int(input(">"))
     if Pays == 1:
         print("histoire pays 1") # depart A1
-        return Pays
+        return "A1"
     elif Pays == 2:
         print("histoire pays 2") # depart B13
-        return Pays
+        return "B13"
     elif Pays == 3:
         print("histoire pays 3") # depart C16
-        return Pays
+        return "C16"
     else:
           print("Tu n'a pas compris la question ????")
           print("Je t'ai demander d'ou tu viens !!!!")
@@ -82,9 +169,9 @@ def choixpays():
 ####################################################################################
 # Attribut du joueur au depart:
 
-class player:
+class joueur:
     def __init__(self):
-        self.name = ''
+        self.nom = ""
         self.HP = 100
         self.DEFENSE = 0
         self.ATTAQUE = 10
@@ -92,13 +179,25 @@ class player:
         self.INVENTAIRE = []
         self.ARME = []
         self.won = False
-player1 = player()
+        self.Boss = False
+joueur1 = joueur()
 
-######################################################################################
-# map :
 
-NOMZONE = ""
-DESCRIPTION = ""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Menu()
