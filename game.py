@@ -10,7 +10,7 @@ screen_width = 100
 
 ####################################################
 # Fonctions du menu :
-quitgame = "quit"
+quitgame = "quit" 
 def Menu():
   print("                                                     --------------------------------")
   print("                                                           1: Nouvelle partie")
@@ -38,7 +38,7 @@ def LancerLeJeux():
 
 def ChargerPartie():
   print("TODO chargerpartir")
-  LancerLeJeux()
+
 
 def Credits():
   print("TODO credits")
@@ -58,18 +58,30 @@ def jeupasfini():
   print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~")
   print("Que veux-tu faire?")
   print("aller")
-  print("combat")
-  print("parler")
+  print("quit")
+  maitre = carte[joueur1.position][MAITRE]
+  combat = carte[joueur1.position][COMBAT]
+  if combat == "True":
+    print("combat")
+  elif maitre == "True":
+    print("parler")
   action = input("> ")
-  acceptable_actions = ["aller", "combat", "parler" ,"quit"]
+  acceptable_actions = ["aller", "combat", "parler" ,"quit", "save"]
   while action.lower() not in acceptable_actions:
     print("Action inconnue, Essaye encore.\n")
     action = input("> ")
   if action.lower() == quitgame:
-    sys.exit()
+    save()
   elif action.lower() in ["aller"]:
     move(action.lower())
-  
+  elif action.lower() in ["combat"]:
+    Event()
+  elif action.lower() in ["parler"]:
+    master()
+
+
+def save():
+  print("save")
 
 ###########################################################################
 # Fonction de l'exploration :
@@ -140,6 +152,9 @@ def Combat():
 
 def Item():
   print("TODO Item")
+
+def master():
+  print("master")
 
 ###########################################################################
 # intro :

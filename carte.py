@@ -18,6 +18,8 @@ carte = {
               BAS : "A5",
               GAUCHE : "False",
               DROITE : "A2",
+              MAITRE : "",
+              COMBAT : "",
           },
           "A2": {
               NOMZONE : "",
@@ -26,6 +28,8 @@ carte = {
               BAS : "A6",
               GAUCHE : "False",
               DROITE : "A3",
+              MAITRE : "",
+              COMBAT : "",
           },
           "A3": {
               NOMZONE : "",
@@ -34,6 +38,8 @@ carte = {
               BAS : "A7",
               GAUCHE : "False",
               DROITE : "A4",
+              MAITRE : "",
+              COMBAT : "",
           },
           "A4": {
               NOMZONE : "",
@@ -42,6 +48,8 @@ carte = {
               BAS : "A8",
               GAUCHE : "A3",
               DROITE : "False",
+              MAITRE : "",
+              COMBAT : "",
           },
           "A5": {
               NOMZONE : "",
@@ -50,6 +58,8 @@ carte = {
               BAS : "A9",
               GAUCHE : "False",
               DROITE : "A6",
+              MAITRE : "",
+              COMBAT : "",
           },
           "A6": {
               NOMZONE : "",
@@ -58,6 +68,8 @@ carte = {
               BAS : "A10",
               GAUCHE : "A5",
               DROITE : "A7",
+              MAITRE : "",
+              COMBAT : "",
           },
           "A7": {
               NOMZONE : "",
@@ -66,6 +78,8 @@ carte = {
               BAS : "A11",
               GAUCHE : "A6",
               DROITE : "A8",
+              MAITRE : "",
+              COMBAT : "",
           },
           "A8": {
               NOMZONE : "",
@@ -74,6 +88,8 @@ carte = {
               BAS : "A12",
               GAUCHE : "A7",
               DROITE : "False",
+              MAITRE : "",
+              COMBAT : "",
           },
           "A9": {
               NOMZONE : "",
@@ -82,6 +98,8 @@ carte = {
               BAS : "A13",
               GAUCHE : "False",
               DROITE : "A10",
+              MAITRE : "",
+              COMBAT : "",
           },
           "A10": {
               NOMZONE : "",
@@ -90,6 +108,8 @@ carte = {
               BAS : "A14",
               GAUCHE : "A9",
               DROITE : "A10",
+              MAITRE : "",
+              COMBAT : "",
           },
           "A11": {
               NOMZONE : "",
@@ -98,6 +118,8 @@ carte = {
               BAS : "A15",
               GAUCHE : "A10",
               DROITE : "A12",
+              MAITRE : "",
+              COMBAT : "",
           },
           "A12": {
               NOMZONE : "",
@@ -106,6 +128,8 @@ carte = {
               BAS : "A16",
               GAUCHE : "A11",
               DROITE : "False",
+              MAITRE : "",
+              COMBAT : "",
           },
           "A13": {
               NOMZONE : "",
@@ -114,6 +138,8 @@ carte = {
               BAS : "False",
               GAUCHE : "False",
               DROITE : "A14",
+              MAITRE : "",
+              COMBAT : "",
           },
           "A14": {
               NOMZONE : "",
@@ -122,6 +148,8 @@ carte = {
               BAS : "False",
               GAUCHE : "A13",
               DROITE : "A15",
+              MAITRE : "",
+              COMBAT : "",
           },
           "A15": {
               NOMZONE : "",
@@ -130,6 +158,8 @@ carte = {
               BAS : "False",
               GAUCHE : "A14",
               DROITE : "A16",
+              MAITRE : "",
+              COMBAT : "",
           },
           "A16": {
               NOMZONE : "",
@@ -138,6 +168,8 @@ carte = {
               BAS : "P2",
               GAUCHE : "A15",
               DROITE : "P1",
+              MAITRE : "",
+              COMBAT : "",
           },
           "B1": {
             NOMZONE : "les Collines de Yangshuo",
@@ -146,6 +178,8 @@ carte = {
             BAS : "B5",
             GAUCHE : "False",
             DROITE : "B2",
+            MAITRE : "",
+            COMBAT : "",
           },
           "B2": {
             NOMZONE : "La Vieille Ville sur l'eau de Fenghuang",
@@ -154,6 +188,8 @@ carte = {
             BAS : "B6",
             GAUCHE : "B1",
             DROITE : "B3",
+            MAITRE : "",
+            COMBAT : "",
           },
           "B3": {
             NOMZONE : "La Fôret de Xueling",
@@ -162,6 +198,8 @@ carte = {
             BAS : "B7",
             GAUCHE : "B2",
             DROITE : "B4",
+            MAITRE : "",
+            COMBAT : "",
           },
           "B4": {
             NOMZONE : "Plage de Qingdao",
@@ -170,6 +208,8 @@ carte = {
             BAS : "B8",
             GAUCHE : "B3",
             DROITE : "P3",
+            MAITRE : "",
+            COMBAT : "",
           },
           "B5": {
             NOMZONE : "Les Chutes d'Eau Huangguoshu",
@@ -178,6 +218,8 @@ carte = {
             BAS : "B9",
             GAUCHE : "False",
             DROITE : "B6",
+            MAITRE : "",
+            COMBAT : "",
           },
           "B6": {
             NOMZONE : "",
@@ -186,6 +228,8 @@ carte = {
             BAS : "B10",
             GAUCHE : "B5",
             DROITE : "B7",
+            MAITRE : "",
+            COMBAT : "",
           },
           "B7": {
             NOMZONE : "La Vallée de Jiuzhaigou",
@@ -194,6 +238,8 @@ carte = {
             BAS : "B11",
             GAUCHE : "B6",
             DROITE : "B8",
+            MAITRE : "",
+            COMBAT : "",
           },
           "B8": {
             NOMZONE : "Les Montagnes du Tiashan",
@@ -202,6 +248,8 @@ carte = {
             BAS : "B12",
             GAUCHE : "B7",
             DROITE : "False",
+            MAITRE : "",
+            COMBAT : "",
           },
           "B9": {
             NOMZONE : "Fleuve du Yangzi Jiang",
@@ -210,6 +258,8 @@ carte = {
             BAS : "B13",
             GAUCHE : "False",
             DROITE : "B10",
+            MAITRE : "",
+            COMBAT : "",
           },
           "B10": {
             NOMZONE : "La Cité Interdite",
@@ -218,6 +268,8 @@ carte = {
             BAS : "B14",
             GAUCHE : "B9",
             DROITE : "B11",
+            MAITRE : "",
+            COMBAT : "",
           },
           "B11": {
             NOMZONE : "La Grande Muraille",
@@ -226,6 +278,8 @@ carte = {
             BAS : "B15",
             GAUCHE : "B10",
             DROITE : "B12",
+            MAITRE : "",
+            COMBAT : "",
           },
           "B12": {
             NOMZONE : "Temple du Ciel Shaoline",
@@ -234,6 +288,8 @@ carte = {
             BAS : "B16",
             GAUCHE : "B11",
             DROITE : "False",
+            MAITRE : "",
+            COMBAT : "",
           },
           "B13": {
             NOMZONE : "Village de Pêcheur",
@@ -242,6 +298,8 @@ carte = {
             BAS : "False",
             GAUCHE : "False",
             DROITE : "B14",
+            MAITRE : "",
+            COMBAT : "",
           },
           "B14": {
             NOMZONE : "Le Palais du Potala",
@@ -250,6 +308,8 @@ carte = {
             BAS : "False",
             GAUCHE : "B13",
             DROITE : "B15",
+            MAITRE : "",
+            COMBAT : "",
           },
           "B15": {
             NOMZONE : "Monastère des 10000 Bouddhas",
@@ -258,6 +318,8 @@ carte = {
             BAS : "False",
             GAUCHE : "B14",
             DROITE : "B16",
+            MAITRE : "",
+            COMBAT : "",
           },
           "B16": {
             NOMZONE : "Les Falaises de Xuankong",
@@ -266,6 +328,8 @@ carte = {
             BAS : "False",
             GAUCHE : "B15",
             DROITE : "False",
+            MAITRE : "",
+            COMBAT : "",
           },
           "C1": {
             NOMZONE : "",
@@ -274,6 +338,8 @@ carte = {
             BAS : "C5",
             GAUCHE : "P3",
             DROITE : "C2",
+            MAITRE : "",
+            COMBAT : "",
           },
           "C2": {
             NOMZONE : "La Jungle de Kawah Ijen",
@@ -282,6 +348,8 @@ carte = {
             BAS : "C6",
             GAUCHE : "C1",
             DROITE : "C3",
+            MAITRE : "",
+            COMBAT : "",
           },
           "C3": {
             NOMZONE : "",
@@ -290,6 +358,8 @@ carte = {
             BAS : "C7",
             GAUCHE : "C2",
             DROITE : "C4",
+            MAITRE : "",
+            COMBAT : "",
           },
           "C4": {
             NOMZONE : "Le Chateau des Démons",
@@ -298,6 +368,8 @@ carte = {
             BAS : "C8",
             GAUCHE : "C3",
             DROITE : "False",
+            MAITRE : "",
+            COMBAT : "",
           },
           "C5": {
             NOMZONE : "Le Sanctuaire de Candi Mendut",
@@ -306,6 +378,8 @@ carte = {
             BAS : "C9",
             GAUCHE : "False",
             DROITE : "C6",
+            MAITRE : "",
+            COMBAT : "",
           },
           "C6": {
             NOMZONE : "Les Grottes de Leang-Leang",
@@ -314,6 +388,8 @@ carte = {
             BAS : "C10",
             GAUCHE : "C5",
             DROITE : "C7",
+            MAITRE : "",
+            COMBAT : "",
           },
           "C7": {
             NOMZONE : "Les plaines du Dragon de Komodo",
@@ -322,6 +398,8 @@ carte = {
             BAS : "C11",
             GAUCHE : "C6",
             DROITE : "C8",
+            MAITRE : "",
+            COMBAT : "",
           },
           "C8": {
             NOMZONE : "Les Ruines du Borobudur",
@@ -330,6 +408,8 @@ carte = {
             BAS : "C12",
             GAUCHE : "C7",
             DROITE : "False",
+            MAITRE : "",
+            COMBAT : "",
           },
           "C9": {
             NOMZONE : "Les Montagnes de Bromo",
@@ -338,6 +418,8 @@ carte = {
             BAS : "C13",
             GAUCHE : "False",
             DROITE : "C10",
+            MAITRE : "",
+            COMBAT : "",
           },
           "C10": {
             NOMZONE : "Volcan du Krakatoa",
@@ -346,6 +428,8 @@ carte = {
             BAS : "C14",
             GAUCHE : "C9",
             DROITE : "C11",
+            MAITRE : "",
+            COMBAT : "",
           },
           "C11": {
             NOMZONE : "Les bassins d'eaux Sacrées de Pura Tirta Empul",
@@ -354,6 +438,8 @@ carte = {
             BAS : "C15",
             GAUCHE : "C10",
             DROITE : "C12",
+            MAITRE : "",
+            COMBAT : "",
           },
           "C12": {
             NOMZONE : "La Fôret de Kalimantan",
@@ -362,6 +448,8 @@ carte = {
             BAS : "C16",
             GAUCHE : "C11",
             DROITE : "False",
+            MAITRE : "",
+            COMBAT : "",
           },
           "C13": {
             NOMZONE : "Les Valées du Baliem",
@@ -370,6 +458,8 @@ carte = {
             BAS : "False",
             GAUCHE : "False",
             DROITE : "C14",
+            MAITRE : "",
+            COMBAT : "",
           },
           "C14": {
             NOMZONE : "Le Village de Sulawesi",
@@ -378,6 +468,8 @@ carte = {
             BAS : "False",
             GAUCHE : "C13",
             DROITE : "C15",
+            MAITRE : "",
+            COMBAT : "",
           },
           "C15": {
             NOMZONE : "Les Rizières de Jatiluwih",
@@ -386,6 +478,8 @@ carte = {
             BAS : "False",
             GAUCHE : "C14",
             DROITE : "C16",
+            MAITRE : "",
+            COMBAT : "",
           },
           "C16": {
             NOMZONE : "Village de Pêcheur abandonné",
@@ -394,6 +488,8 @@ carte = {
             BAS : "False",
             GAUCHE : "C15",
             DROITE : "False",
+            MAITRE : "",
+            COMBAT : "",
           },
           "P1": {
             NOMZONE : "",
@@ -402,6 +498,8 @@ carte = {
             BAS : "False",
             GAUCHE : "A16",
             DROITE : "Temple",
+            MAITRE : "",
+            COMBAT : "",
           },
           "P2": {
             NOMZONE : "",
@@ -410,6 +508,8 @@ carte = {
             BAS : "B4",
             GAUCHE : "False",
             DROITE : "False",
+            MAITRE : "",
+            COMBAT : "",
           },
           "P3": {
             NOMZONE : "",
@@ -418,6 +518,8 @@ carte = {
             BAS : "False",
             GAUCHE : "B4",
             DROITE : "C1",
+            MAITRE : "",
+            COMBAT : "",
           },
           "P4": {
             NOMZONE : "Port de Gili trawangan",
@@ -426,6 +528,8 @@ carte = {
             BAS : "C1",
             GAUCHE : "False",
             DROITE : "False",
+            MAITRE : "",
+            COMBAT : "",
           },
           "Temple": {
             NOMZONE : "",
@@ -434,6 +538,8 @@ carte = {
             BAS : "P4",
             GAUCHE : "P1",
             DROITE : "False",
+            MAITRE : "",
+            COMBAT : "",
           },
           "Boss": {
             NOMZONE : "",
@@ -442,6 +548,8 @@ carte = {
             BAS : "False",
             GAUCHE : "Temple",
             DROITE : "False",
+            MAITRE : "",
+            COMBAT : "",
           },
           
 
