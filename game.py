@@ -1,8 +1,6 @@
-import cmd
-import textwrap
 import sys
 import os
-import random
+from random import randint
 from carte import *
 screen_width = 100
 
@@ -10,7 +8,7 @@ screen_width = 100
 
 ####################################################
 # Fonctions du menu :
-quitgame = "quit"
+quitgame = "quit" 
 def Menu():
   print("                                                     --------------------------------")
   print("                                                           1: Nouvelle partie")
@@ -26,7 +24,7 @@ def Menu():
   elif Choix == 3:
     Credits()
   else:
-    Quitter()
+    sys.exit()
 
 def LancerLeJeux():
   print("")
@@ -38,14 +36,11 @@ def LancerLeJeux():
 
 def ChargerPartie():
   print("TODO chargerpartir")
-  LancerLeJeux()
+
 
 def Credits():
   print("TODO credits")
   Menu()
-
-def Quitter():
-  print("TODO quitter")
 
 def main_game_loop():
   joueur1.Boss == False
@@ -57,16 +52,31 @@ def jeupasfini():
     print("Ne présume pas de tes forces, entraine toi encore !!!!")
   print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~")
   print("Que veux-tu faire?")
+  print("aller")
+  print("quit")
+  maitre = carte[joueur1.position][MAITRE]
+  combat = carte[joueur1.position][COMBAT]
+  if combat == "True":
+    print("combat")
+  elif maitre == "True":
+    print("parler")
   action = input("> ")
-  acceptable_actions = ["move", "go", "travel", "walk", "aller", "quit"]
+  acceptable_actions = ["aller", "combat", "parler" ,"quit", "save"]
   while action.lower() not in acceptable_actions:
     print("Action inconnue, Essaye encore.\n")
     action = input("> ")
   if action.lower() == quitgame:
-    sys.exit()
-  elif action.lower() in ["move", "go", "travel", "walk", "aller"]:
+    save()
+  elif action.lower() in ["aller"]:
     move(action.lower())
-  
+  elif action.lower() in ["combat"]:
+    Event()
+  elif action.lower() in ["parler"]:
+    master()
+
+
+def save():
+  print("save")
 
 ###########################################################################
 # Fonction de l'exploration :
@@ -127,16 +137,55 @@ def move_player(move_dest):
 ###########################################################################
 # fonction de l'action ou item :
 
-def Event(Lieu):
-  print("TODO Combat ou Item qui se passe quand on se deplace")
-  Combat()
-  Item()
+def De6():
+      return randint(1,6)
+
+def Event():
+  De = De6()
+  if De < 5:
+    Combat()
+  else:
+    Item()
 
 def Combat():
-  print("TODO Combat")
+  print(carte[joueur1.position][MONSTRE][NOMMONSTRE])
+  print(carte[joueur1.position][MONSTRE][DESCRIPTIONMONSTRE])
+  print("que veux-tu faire ?")
+  print("combat \n  item  \n  quit")
+  action = input("> ")
+  acceptable_actions = ["combat", "item" ,"fuir"]
+  while action.lower() not in acceptable_actions:
+    print("Action inconnue, Essaye encore.\n")
+    action = input("> ")
+  if action.lower() in ["combat"]:
+    TourParTour()
+  elif action.lower() in ["item"]:
+    print(joueur1.INVENTAIRE)
+  elif action.lower() in ["fuir"]:
+    print("Fiotte!")
+    main_game_loop()
+
+def TourParTour():
+  print("Tour")      
+  FirstBlood()
+
+def FirstBlood():
+  print("Tour")
+  De = De6()
+  if De < 4 :
+    joueur1.HP = joueur1.HP + 100
+    print("Tu attaque en premier")
+  else:
+    carte[joueur1.position][MONSTRE][HP] + 100
+    print("Il a été plus rapide que toi pour lancer le combat")
 
 def Item():
   print("TODO Item")
+
+def master():
+  print("master")
+
+  
 
 ###########################################################################
 # intro :
