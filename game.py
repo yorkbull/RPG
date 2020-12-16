@@ -1,8 +1,6 @@
-import cmd
-import textwrap
 import sys
 import os
-import random
+from random import randint
 from carte import *
 screen_width = 100
 
@@ -26,7 +24,7 @@ def Menu():
   elif Choix == 3:
     Credits()
   else:
-    Quitter()
+    sys.exit()
 
 def LancerLeJeux():
   print("")
@@ -43,9 +41,6 @@ def ChargerPartie():
 def Credits():
   print("TODO credits")
   Menu()
-
-def Quitter():
-  print("TODO quitter")
 
 def main_game_loop():
   joueur1.Boss == False
@@ -142,19 +137,51 @@ def move_player(move_dest):
 ###########################################################################
 # fonction de l'action ou item :
 
+def De6():
+      return randint(1,6)
+
 def Event():
-  print("TODO Combat ou Item qui se passe quand on se deplace")
-  Combat()
-  Item()
+  De = De6()
+  if De < 5:
+    Combat()
+  else:
+    Item()
 
 def Combat():
-  print("TODO Combat")
+  print(carte[joueur1.position][MONSTRE][NOMMONSTRE])
+  print(carte[joueur1.position][MONSTRE][DESCRIPTIONMONSTRE])
+  print("que veux-tu faire ?")
+  print("combat \n  item  \n  quit")
+  action = input("> ")
+  acceptable_actions = ["combat", "item" ,"fuir"]
+  while action.lower() not in acceptable_actions:
+    print("Action inconnue, Essaye encore.\n")
+    action = input("> ")
+  if action.lower() in ["combat"]:
+    TourParTour()
+  elif action.lower() in ["item"]:
+    print(joueur1.INVENTAIRE)
+  elif action.lower() in ["fuir"]:
+    print("Fiotte!")
+    main_game_loop()
+    
+def TourParTour():
+  print("Tour")
+  De = De6()
+  if De < 4 :
+    joueur1.HP = joueur1.HP + 100
+    print("Tu attaque en premier")
+  else:
+    carte[joueur1.position][MONSTRE][HP] + 100
+    print("Il a été plus rapide que toi pour lancer le combat")
 
 def Item():
   print("TODO Item")
 
 def master():
   print("master")
+
+  
 
 ###########################################################################
 # intro :
