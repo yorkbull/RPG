@@ -51,6 +51,7 @@ def jeupasfini():
   if joueur1.Boss == False:
     print("Ne présume pas de tes forces, entraine toi encore !!!!")
   print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~")
+  print(carte[joueur1.position][DESCRIPTION])
   print("Que veux-tu faire?")
   print("aller")
   print("quit")
