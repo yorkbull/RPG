@@ -137,8 +137,7 @@ def move_player(move_dest):
 ###########################################################################
 # fonction de l'action ou item :
 
-def De6():
-      return randint(1,6)
+
 
 def Event():
   De = De6()
@@ -185,7 +184,18 @@ def Item():
 def master():
   print("master")
 
-  
+#############################################################################
+############################# Dé
+
+def De6():
+      return randint(1,6)
+
+def De10():
+      return randint(1,10)
+
+def De20():
+      return randint(1,20)
+
 
 ###########################################################################
 # intro :
