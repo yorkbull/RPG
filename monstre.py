@@ -1,24 +1,130 @@
+#####################################################
+########### Monstre
 
 
-#Monstre
 
-#Japon
+####################################################
+###### Japon
 
-class Monstre1:
-    def init(self):
-        self.name = ""
-        self.hp = 0
-        self.mp = 0
-        self.status_effects = []
-        self.location = "start"
+NOMMONSTRE = "Le Kappa"
+DESCRIPTION = "Enfant de la rivière"
+HP = "100"
+ATTAQUE = "10"
+DEFENSE = "0"
+POSITION = "A5"
+CAPICITE = "ne prend pas de dégâts au delà de 30 d'attaques"
 
-Kodama = Monstre1()
+NOMMONSTRE = "Les Yurei"
+DESCRIPTION = "fantomes incapable de passer dans l’au-dela"
+HP = "100"
+ATTAQUE = "5"
+DEFENSE = "50"
+POSITION = "A4"
+CAPICITE = "ajout de 5 de dégâts après chaque tour"
+
+NOMMONSTRE = ""
+DESCRIPTION = ""
+HP = ""
+ATTAQUE = ""
+DEFENSE = ""
+POSITION = ""
+CAPICITE = ""
+
+NOMMONSTRE = ""
+DESCRIPTION = ""
+HP = ""
+ATTAQUE = ""
+DEFENSE = ""
+POSITION = ""
+CAPICITE = ""
+
+NOMMONSTRE = ""
+DESCRIPTION = ""
+HP = ""
+ATTAQUE = ""
+DEFENSE = ""
+POSITION = ""
+CAPICITE = ""
+
+NOMMONSTRE = ""
+DESCRIPTION = ""
+HP = ""
+ATTAQUE = ""
+DEFENSE = ""
+POSITION = ""
+CAPICITE = ""
+
+NOMMONSTRE = ""
+DESCRIPTION = ""
+HP = ""
+ATTAQUE = ""
+DEFENSE = ""
+POSITION = ""
+CAPICITE = ""
+
+NOMMONSTRE = ""
+DESCRIPTION = ""
+HP = ""
+ATTAQUE = ""
+DEFENSE = ""
+POSITION = ""
+CAPICITE = ""
+
+NOMMONSTRE = ""
+DESCRIPTION = ""
+HP = ""
+ATTAQUE = ""
+DEFENSE = ""
+POSITION = ""
+CAPICITE = ""
+
+NOMMONSTRE = ""
+DESCRIPTION = ""
+HP = ""
+ATTAQUE = ""
+DEFENSE = ""
+POSITION = ""
+CAPICITE = ""
+
+NOMMONSTRE = ""
+DESCRIPTION = ""
+HP = ""
+ATTAQUE = ""
+DEFENSE = ""
+POSITION = ""
+CAPICITE = ""
+
+NOMMONSTRE = ""
+DESCRIPTION = ""
+HP = ""
+ATTAQUE = ""
+DEFENSE = ""
+POSITION = ""
+CAPICITE = ""
+
+NOMMONSTRE = ""
+DESCRIPTION = ""
+HP = ""
+ATTAQUE = ""
+DEFENSE = ""
+POSITION = ""
+CAPICITE = ""
+
+NOMMONSTRE = ""
+DESCRIPTION = ""
+HP = ""
+ATTAQUE = ""
+DEFENSE = ""
+POSITION = ""
+CAPICITE = ""
 
 
-class Monstre2:
-    def init(self):
-        self.name = ""
-        self.hp = 0
-        self.mp = 0
-        self.status_effects = []
-        self.location = "start"
+#########Chine######################
+
+NOMMONSTRE = ""
+DESCRIPTION = ""
+HP = ""
+ATTAQUE = ""
+DEFENSE = ""
+POSITION = ""
+CAPICITE = ""
