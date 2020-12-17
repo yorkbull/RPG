@@ -32,6 +32,7 @@ def LancerLeJeux():
   joueur1.nom = Pseudo()
   print("Tu a une tête bizarre , Tu viens d'ou ?")
   joueur1.position = choixpays()
+  print(carte[joueur1.position][DESCRIPTION])
   main_game_loop()
 
 def ChargerPartie():
@@ -94,7 +95,7 @@ def move(myAction):
   print(">gauche  :     " + (carte[joueur1.position][GAUCHE] ))
   print(">droite  :     " + (carte[joueur1.position][DROITE] ))
   print("               ")
-  askString = "Ou veux-tu aller "+myAction+"?\n> "
+  askString = "Ou veux-tu "+myAction+"?\n> "
   destination = input(askString)
   if destination == "haut":
     move_dest = carte[joueur1.position][HAUT]
@@ -147,8 +148,8 @@ def Event():
     Item()
 
 def Combat():
-  print(carte[joueur1.position][MONSTRE][NOMMONSTRE])
-  print(carte[joueur1.position][MONSTRE][DESCRIPTIONMONSTRE])
+  print(carte[joueur1.position][MONSTRE][NOMMONSTRE]) # variable a definir
+  print(carte[joueur1.position][MONSTRE][DESCRIPTIONMONSTRE]) # variable a definir
   print("que veux-tu faire ?")
   print("combat \n  item  \n  quit")
   action = input("> ")
