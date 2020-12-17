@@ -89,38 +89,38 @@ def print_location():
 	print("\n" + (carte[joueur1.position][DESCRIPTION]))
 
 def move(myAction):
-  print("haut" + (carte[joueur1.position][HAUT] ))
-  print("bas" + (carte[joueur1.position][BAS] ))
-  print("gauche" + (carte[joueur1.position][GAUCHE] ))
-  print("droite" + (carte[joueur1.position][DROITE] ))
-
+  print(">haut    :     " + (carte[joueur1.position][HAUT] ))
+  print(">bas     :     " + (carte[joueur1.position][BAS] ))
+  print(">gauche  :     " + (carte[joueur1.position][GAUCHE] ))
+  print(">droite  :     " + (carte[joueur1.position][DROITE] ))
+  print("               ")
   askString = "Ou veux-tu aller "+myAction+"?\n> "
   destination = input(askString)
   if destination == "haut":
     move_dest = carte[joueur1.position][HAUT]
-    if move_dest == "False":
-      print("tu va dans le mur")
+    if move_dest == "ravin" or move_dest == "océan":
+      print("c'est une voie sans issu, fais demi-tour")
       print("choisi un autre chemin.")
       move(myAction) 
     move_player(move_dest)   
   elif destination == "gauche":
     move_dest = carte[joueur1.position][GAUCHE]
-    if move_dest == "False":
-      print("tu va dans le mur")
+    if move_dest == "ravin" or move_dest == "océan":
+      print("c'est une voie sans issu, fais demi-tour")
       print("choisi un autre chemin.")
       move(myAction)
     move_player(move_dest)
   elif destination == "droite":
     move_dest = carte[joueur1.position][DROITE]
-    if move_dest == "False":
-      print("tu va dans le mur")
+    if move_dest == "ravin" or move_dest == "océan":
+      print("c'est une voie sans issu, fais demi-tour")
       print("choisi un autre chemin.")
       move(myAction)
     move_player(move_dest)
   elif destination == "bas":
     move_dest = carte[joueur1.position][BAS]
-    if move_dest == "False":
-      print("tu va dans le mur")
+    if move_dest == "ravin" or move_dest == "océan":
+      print("c'est une voie sans issu, fais demi-tour")
       print("choisi un autre chemin.")
       move(myAction)
     move_player(move_dest)
