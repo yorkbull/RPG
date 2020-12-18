@@ -148,8 +148,8 @@ def Event():
     Item()
 
 def Combat():
-  print(carte[joueur1.position][MONSTRE][NONMONSTRE]) # variable a definir
-  print(carte[joueur1.position][MONSTRE][DESCRIPTIONMONSTRE]) # variable a definir
+  print(carte[joueur1.position][NONMONSTRE]) # variable a definir
+  print(carte[joueur1.position][DESCRIPTIONMONSTRE]) # variable a definir
   print("que veux-tu faire ?")
   print("combat \n  item  \n  quit")
   action = input("> ")
@@ -169,7 +169,10 @@ def TourParTour():
   print("Tour")      
   FirstAttack = FirstBlood()
   if FirstAttack == True:
-        print("att")
+    print("att")
+    while
+  else:
+    print("def")
         
 
 def FirstBlood():
