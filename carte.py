@@ -11,6 +11,8 @@ MAITRE = ""
 COMBAT = ""
 DIALOGUE = ""
 RECOMPENSE = ""
+MONSTRE = {}
+NONMONSTRE = ""
 DESCRIPTIONMONSTRE = ""
 HP = 0
 ATT = 0
@@ -53,7 +55,8 @@ carte = {
               GAUCHE : "A3",
               DROITE : "océan",
               COMBAT : True, #les yurei
-              "les yurei" : {
+              MONSTRE : {
+                NONMONSTRE : "yurei",
                 DESCRIPTIONMONSTRE : "",
                 HP : 0,
                 ATT : 0,

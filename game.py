@@ -148,7 +148,7 @@ def Event():
     Item()
 
 def Combat():
-  print(carte[joueur1.position][MONSTRE][NOMMONSTRE]) # variable a definir
+  print(carte[joueur1.position][MONSTRE][NONMONSTRE]) # variable a definir
   print(carte[joueur1.position][MONSTRE][DESCRIPTIONMONSTRE]) # variable a definir
   print("que veux-tu faire ?")
   print("combat \n  item  \n  quit")
