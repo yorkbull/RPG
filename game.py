@@ -57,9 +57,9 @@ def jeupasfini():
   print("quit")
   maitre = carte[joueur1.position][MAITRE]
   combat = carte[joueur1.position][COMBAT]
-  if combat == "True":
+  if combat == True:
     print("combat")
-  elif maitre == "True":
+  elif maitre == True:
     print("parler")
   action = input("> ")
   acceptable_actions = ["aller", "combat", "parler" ,"quit", "save"]
@@ -167,17 +167,20 @@ def Combat():
 
 def TourParTour():
   print("Tour")      
-  FirstBlood()
+  FirstAttack = FirstBlood()
+  if FirstAttack == True:
+        print("att")
+        
 
 def FirstBlood():
   print("Tour")
   De = De6()
   if De < 4 :
-    joueur1.HP = joueur1.HP + 100
     print("Tu attaque en premier")
+    return True
   else:
-    carte[joueur1.position][MONSTRE][HP] + 100
     print("Il a été plus rapide que toi pour lancer le combat")
+    return False
 
 def Item():
   print("TODO Item")
@@ -194,8 +197,6 @@ def De6():
 def De10():
       return randint(1,10)
 
-def De20():
-      return randint(1,20)
 
 
 ###########################################################################
