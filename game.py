@@ -167,7 +167,7 @@ def Combat():
         main_game_loop()
 
 def TourParTour():      
-  FirstAttack = FirstBlood()
+    FirstAttack = FirstBlood()
     if FirstAttack == True:
         i = 1
         while carte[joueur1.position][HP] > 0:
@@ -180,7 +180,7 @@ def TourParTour():
               print("Tour" + i)
               print("il a bloqué ton attaque")
             Fight = defDe10()
-          i = i + 1                   
+        i = i + 1                   
     else:
         print("def")
         
