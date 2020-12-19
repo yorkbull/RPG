@@ -170,12 +170,14 @@ def TourParTour():
   FirstAttack = FirstBlood()
   if FirstAttack == True:
     print("att")
+
     i = 1
     while carte[joueur1.position][HP] > 0:
       carte[joueur1.position][HP] = (joueur1.ARME + joueur1.ATTAQUE) - (carte[joueur1.position][HP] + carte[joueur1.position][DEF])
       joueur1.HP = carte[joueur1.position][ATT] - (joueur1.HP + joueur1.DEFENSE)
       print("Tour" + i)
       print("") # resultat lancé DE10
+
   else:
     print("def")
         
