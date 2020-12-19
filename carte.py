@@ -11,7 +11,6 @@ MAITRE = ""
 COMBAT = ""
 DIALOGUE = ""
 RECOMPENSE = ""
-MONSTRE = {}
 NONMONSTRE = ""
 DESCRIPTIONMONSTRE = ""
 HP = 0
@@ -54,14 +53,12 @@ carte = {
               BAS : "A8",
               GAUCHE : "A3",
               DROITE : "océan",
-              COMBAT : True, #les yurei
-              MONSTRE : {
-                NONMONSTRE : "yurei",
-                DESCRIPTIONMONSTRE : "",
-                HP : 0,
-                ATT : 0,
-                DEF : 0
-              }
+              COMBAT : True,
+              NONMONSTRE : "yurei",
+              DESCRIPTIONMONSTRE : "",
+              HP : 0,
+              ATT : 0,
+              DEF : 0
           },
           "A5": {
               NOMZONE : "Le fleuve Shinano-Gawa",

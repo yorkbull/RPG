@@ -58,7 +58,8 @@ def jeupasfini():
   maitre = carte[joueur1.position][MAITRE]
   combat = carte[joueur1.position][COMBAT]
   if combat == True:
-    print("combat")
+    print("un" + carte[joueur1.position][NONMONSTRE] + "vient d'apparaitre devant toi!")
+    print("combat") # rajouter print du nom du maitre
   elif maitre == True:
     print("parler")
   action = input("> ")
@@ -148,8 +149,8 @@ def Event():
     Item()
 
 def Combat():
-  print(carte[joueur1.position][MONSTRE][NONMONSTRE]) # variable a definir
-  print(carte[joueur1.position][MONSTRE][DESCRIPTIONMONSTRE]) # variable a definir
+  print(carte[joueur1.position][NONMONSTRE]) 
+  print(carte[joueur1.position][DESCRIPTIONMONSTRE]) 
   print("que veux-tu faire ?")
   print("combat \n  item  \n  quit")
   action = input("> ")
@@ -165,11 +166,18 @@ def Combat():
     print("Fiotte!")
     main_game_loop()
 
-def TourParTour():
-  print("Tour")      
+def TourParTour():      
   FirstAttack = FirstBlood()
   if FirstAttack == True:
-        print("att")
+    print("att")
+    i = 1
+    while carte[joueur1.position][HP] > 0:
+      carte[joueur1.position][HP] = (joueur1.ARME + joueur1.ATTAQUE) - (carte[joueur1.position][HP] + carte[joueur1.position][DEF])
+      joueur1.HP = carte[joueur1.position][ATT] - (joueur1.HP + joueur1.DEFENSE)
+      print("Tour" + i)
+      print("") # resultat lancé DE10
+  else:
+    print("def")
         
 
 def FirstBlood():
