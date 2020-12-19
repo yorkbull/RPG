@@ -179,6 +179,7 @@ def TourParTour():
       else:
         print("Tour" + i)
         print("il a bloqué ton attaque")
+      Fight = defDe10()
     i = i + 1            
         
   else:
