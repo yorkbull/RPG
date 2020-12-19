@@ -53,7 +53,7 @@ carte = {
               BAS : "A8",
               GAUCHE : "A3",
               DROITE : "océan",
-              COMBAT : True, #les yurei
+              COMBAT : True,
               NONMONSTRE : "yurei",
               DESCRIPTIONMONSTRE : "",
               HP : 0,
