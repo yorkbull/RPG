@@ -169,15 +169,21 @@ def Combat():
 def TourParTour():      
   FirstAttack = FirstBlood()
   if FirstAttack == True:
-    print("att")
-
     i = 1
     while carte[joueur1.position][HP] > 0:
-      carte[joueur1.position][HP] = (joueur1.ARME + joueur1.ATTAQUE) - (carte[joueur1.position][HP] + carte[joueur1.position][DEF])
-      joueur1.HP = carte[joueur1.position][ATT] - (joueur1.HP + joueur1.DEFENSE)
-      print("Tour" + i)
-      print("") # resultat lancé DE10
-
+      Fight = defDe10()
+      if Fight == True:
+        carte[joueur1.position][HP] = (joueur1.ARME + joueur1.ATTAQUE) - (carte[joueur1.position][HP] + carte[joueur1.position][DEF])
+        joueur1.HP = carte[joueur1.position][ATT] - (joueur1.HP + joueur1.DEFENSE)
+        print("Tour" + i)
+        print(carte[joueur1.position][NONMONSTRE] + " a subi " + (joueur1.ARME + joueur1.ATTAQUE) + "de dégats")
+        print("Tu a subi" + carte[joueur1.position][ATT] + " de dégats")
+      else:
+        joueur1.HP = carte[joueur1.position][ATT] - (joueur1.HP + joueur1.DEFENSE)
+        print("Tour" + i)
+        print("il a bloqué ton attaque")
+        print("Tu a subi" + carte[joueur1.position][ATT] + " de dégats")            
+        
   else:
     print("def")
         
@@ -197,6 +203,13 @@ def Item():
 
 def master():
   print("master")
+
+def defDe10():
+  ResultatDe10 = De10()
+  if ResultatDe10 < 6 :
+    return True
+  else:
+    return False
 
 #############################################################################
 ############################# Dé
