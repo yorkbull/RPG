@@ -174,15 +174,14 @@ def TourParTour():
       Fight = defDe10()
       if Fight == True:
         carte[joueur1.position][HP] = (joueur1.ARME + joueur1.ATTAQUE) - (carte[joueur1.position][HP] + carte[joueur1.position][DEF])
-        joueur1.HP = carte[joueur1.position][ATT] - (joueur1.HP + joueur1.DEFENSE)
         print("Tour" + i)
         print(carte[joueur1.position][NONMONSTRE] + " a subi " + (joueur1.ARME + joueur1.ATTAQUE) + "de dégats")
         print("Tu a subi" + carte[joueur1.position][ATT] + " de dégats")
       else:
-        joueur1.HP = carte[joueur1.position][ATT] - (joueur1.HP + joueur1.DEFENSE)
         print("Tour" + i)
         print("il a bloqué ton attaque")
-        print("Tu a subi" + carte[joueur1.position][ATT] + " de dégats")            
+        print("Tu a subi" + carte[joueur1.position][ATT] + " de dégats")
+    i = i + 1            
         
   else:
     print("def")
@@ -262,7 +261,7 @@ class joueur:
         self.position = ""
         self.INVENTAIRE = []
         self.ARME = []
-        self.won = False
+        self.won = True
         self.Boss = False
 joueur1 = joueur()
 
