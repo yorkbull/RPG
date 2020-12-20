@@ -2,7 +2,7 @@
 # carte :
 
 NOMZONE = ""
-DESCRIPTION = ""
+DESCRIPTION = None
 HAUT = "haut", "up", "z"
 BAS = "bas", "down", "s"
 GAUCHE = "gauche", "left", "q"
@@ -31,9 +31,9 @@ carte = {
               DESCRIPTION : "blablabla",
               HAUT : "ravin",
               BAS : "A6",
-              GAUCHE : "ravin",
+              GAUCHE : "A1",
               DROITE : "A3",
-              COMBAT : "True"
+              COMBAT : "",
           },
           "A3": {
               NOMZONE : "Okuno-in",
@@ -52,21 +52,16 @@ carte = {
               BAS : "A8",
               GAUCHE : "A3",
               DROITE : "océan",
-              COMBAT : "True",
-              NONMONSTRE : "yurei",
-              DESCRIPTIONMONSTRE : "",
-              HP : 0,
-              ATT : 0,
-              DEF : 0
+              COMBAT : "", # les yurei
           },
           "A5": {
               NOMZONE : "Le fleuve Shinano-Gawa",
-              DESCRIPTION : "",
+              DESCRIPTION : "blabla",
               HAUT : "A1",
               BAS : "A9",
               GAUCHE : "ravin",
               DROITE : "A6",
-              COMBAT : "True", # Le Kappa 
+              COMBAT : "", # Le Kappa 
           },
           "A6": {
               NOMZONE : "Le donjon HIkone",
@@ -85,7 +80,7 @@ carte = {
               BAS : "A11",
               GAUCHE : "A6",
               DROITE : "A8",
-              MAITRE : "True", #redonne de l'HP max if HP max ALORS XP by Sensei Jiraya
+              MAITRE : "", #redonne de l'HP max if HP max ALORS XP by Sensei Jiraya
               DIALOGUE : "",
           },
           "A8": {
@@ -145,7 +140,7 @@ carte = {
               BAS : "océan",
               GAUCHE : "ravin",
               DROITE : "A14",
-              MAITRE : "True" , #Miyamoto Musashi Xp + arme 
+              MAITRE : "" , #Miyamoto Musashi Xp + arme 
               DIALOGUE : "",
           },
           "A14": {
