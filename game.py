@@ -167,25 +167,55 @@ def Combat():
         main_game_loop()
 
 def TourParTour():      
-    FirstAttack = FirstBlood()
+    FirstAttack = DeFirstBlood()
     if FirstAttack == True:
         i = 1
         while carte[joueur1.position][HP] > 0:
-            Fight = defDe10()
-            if Fight == True:
-              carte[joueur1.position][HP] = (joueur1.ARME + joueur1.ATTAQUE) - (carte[joueur1.position][HP] + carte[joueur1.position][DEF])
-              print("Tour" + i)
-              print(carte[joueur1.position][NONMONSTRE] + " a subi " + (joueur1.ARME + joueur1.ATTAQUE) + "de dégats")
+            if joueur1.HP == 0:
+                GameOver()
             else:
-              print("Tour" + i)
-              print("il a bloqué ton attaque")
-            Fight = defDe10()
-        i = i + 1                   
+                Fight = defDe10()
+                if Fight == True:
+                    carte[joueur1.position][HP] = (joueur1.ARME + joueur1.ATTAQUE) - (carte[joueur1.position][HP] + carte[joueur1.position][DEF])
+                    print("Tour " + i)
+                    print(carte[joueur1.position][NONMONSTRE] + " a subi " + (joueur1.ARME + joueur1.ATTAQUE) + "de dégats")
+                else:
+                    print("Tour " + i)
+                    print("il a bloqué ton attaque")
+                Fight = defDe10()
+                if Fight == True:
+                    joueur1.HP = carte[joueur1.position][ATT] - (joueur1.HP + joueur1.DEFENSE)
+                    print("Tour " + i)
+                    print("Tu a subi" + carte[joueur1.position] + "de dégats")
+                else:
+                    print("Tour " + i)
+                    print("Tu a bloqué ton attaque")
+        i = i + 1                  
     else:
-        print("def")
-        
-
-def FirstBlood():
+        i = 0
+        while carte[joueur1.position][HP] > 0:
+            if joueur1.HP == 0:
+                GameOver()
+            else:
+                Fight = defDe10()
+                if Fight == True:
+                    joueur1.HP = carte[joueur1.position][ATT] - (joueur1.HP + joueur1.DEFENSE)
+                    print("Tour 1")
+                    print("Tu a subi" + carte[joueur1.position] + "de dégats")
+                else:
+                    print("Tour 1")
+                    print("Tu a bloqué ton attaque")
+                Fight = defDe10()
+                if Fight == True:
+                    carte[joueur1.position][HP] = (joueur1.ARME + joueur1.ATTAQUE) - (carte[joueur1.position][HP] + carte[joueur1.position][DEF])
+                    print("Tour " + i)
+                    print(carte[joueur1.position][NONMONSTRE] + " a subi " + (joueur1.ARME + joueur1.ATTAQUE) + "de dégats")
+                else:
+                    print("Tour " + i)
+                    print("il a bloqué ton attaque")
+        i = i + 1
+       
+def DeFirstBlood():
     print("Tour")
     De = De6()
     if De < 4 :
@@ -205,8 +235,11 @@ def defDe10():
     ResultatDe10 = De10()
     if ResultatDe10 < 6 :
         return True
-    else:
-        return False
+
+
+def GameOver():
+    print("GAME OVER")
+
 
 #############################################################################
 ############################# Dé
