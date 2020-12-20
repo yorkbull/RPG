@@ -10,12 +10,13 @@ screen_width = 100
 # Fonctions du menu :
 quitgame = "quit" 
 def Menu():
-  print("                                                     --------------------------------")
-  print("                                                           1: Nouvelle partie")
-  print("                                                           2: Charger partie")
-  print("                                                           3: Credits")
-  print("                                                           4: Quitter")
-  print("                                                      -------------------------------")
+  Title()
+  print("                                       --------------------------------")
+  print("                                             1: Nouvelle partie")
+  print("                                             2: Charger partie")
+  print("                                             3: Credits")
+  print("                                             4: Quitter")
+  print("                                        -------------------------------")
   Choix = int(input(">"))
   if Choix == 1:
     LancerLeJeux()
@@ -27,10 +28,9 @@ def Menu():
     sys.exit()
 
 def LancerLeJeux():
-  print("")
-  print("Qu'elle est ton nom jeune guerrier ?")
+  print("\nQu'elle est ton nom jeune guerrier ?\n")
   joueur1.nom = Pseudo()
-  print("Tu a une tête bizarre , Tu viens d'ou ?")
+  print("\nTu a une tête bizarre , Tu viens d'ou ?")
   joueur1.position = choixpays()
   main_game_loop()
 
@@ -47,11 +47,13 @@ def main_game_loop():
     jeupasfini()
 
 def jeupasfini():
-  print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~")
+  print("")
+  print(carte[joueur1.position][DESCRIPTION])
+  print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
   print("Que veux-tu faire?")
-  print("aller")
-  print("quit")
-  action = input("> ")
+  print("\naller")
+  print("\nquit")
+  action = input("\n> ")
   acceptable_actions = ["aller", "combat", "parler" ,"quit", "save"]
   while action.lower() not in acceptable_actions:
     print("Action inconnue, Essaye encore.\n")
@@ -77,15 +79,14 @@ def print_location():
 	print("\n" + ("#" * (4 +len(joueur1.position))))
 	print("# " + joueur1.position.upper() + " #")
 	print("#" * (4 +len(joueur1.position)))
-	print("\n" + (carte[joueur1.position][DESCRIPTION]))
 
 def move(myAction):
-  print("haut" + (carte[joueur1.position][HAUT] ))
-  print("bas" + (carte[joueur1.position][BAS] ))
-  print("gauche" + (carte[joueur1.position][GAUCHE] ))
-  print("droite" + (carte[joueur1.position][DROITE] ))
+  print("\nhaut  ->   " + (carte[joueur1.position][HAUT] ))
+  print("bas   ->   " + (carte[joueur1.position][BAS] ))
+  print("gauche   ->   " + (carte[joueur1.position][GAUCHE] ))
+  print("droite   ->   " + (carte[joueur1.position][DROITE] ))
 
-  askString = "Ou veux-tu aller "+myAction+"?\n> "
+  askString = "\nOu veux-tu "+myAction+"?\n> "
   destination = input(askString)
   if destination == "haut":
     move_dest = carte[joueur1.position][HAUT]
@@ -150,29 +151,35 @@ def master():
 
 def Pseudo():
   Nom = str(input(">"))
-  print("Bienvenu",Nom)
+  print("\nBienvenu", Nom)
   return Nom
 
 def choixpays():
-    print("japon, tapez 1")
-    print("chine, tapez 2")
-    print("indonésie, tapez 3")
+    print("\njapon, tapez 1")
+    print("\nchine, tapez 2")
+    print("\nindonésie, tapez 3\n")
     Pays = int(input(">"))
     if Pays == 1:
-        print("histoire pays 1") # depart A1
+        print("\nhistoire pays 1") # depart A1
         return "A1"
     elif Pays == 2:
-        print("histoire pays 2") # depart B13
+        print("\nhistoire pays 2") # depart B13
         return "B13"
     elif Pays == 3:
-        print("histoire pays 3") # depart C16
+        print("\nhistoire pays 3") # depart C16
         return "C16"
     else:
-          print("Tu n'a pas compris la question ????")
-          print("Je t'ai demander d'ou tu viens !!!!")
+          print("\nTu n'a pas compris la question ????")
+          print("\nJe t'ai demander d'ou tu viens !!!!")
           choixpays()
 
-
+def Title():
+    print("                    __     __      _____ _     _          ____                  _")   
+    print("                    \ \   / /     / ____| |   (_)        / __ \                | |")  
+    print("                     \ \_/ /_ _  | (___ | |__  _ _ __   | |  | |_   _  ___  ___| |_") 
+    print("                      \   / _` |  \___ \| '_ \| | '_ \  | |  | | | | |/ _ \/ __| __|")
+    print("                       | | (_| |  ____) | | | | | | | | | |__| | |_| |  __/\__ \ |_") 
+    print("                       |_|\__,_| |_____/|_| |_|_|_| |_|  \___\_\\__,_|\___||___/\__|")
 ####################################################################################
 # Attribut du joueur au depart:
 
