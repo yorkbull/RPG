@@ -2,7 +2,7 @@
 # carte :
 
 NOMZONE = ""
-DESCRIPTION = None
+DESCRIPTION = ""
 HAUT = "haut", "up", "z"
 BAS = "bas", "down", "s"
 GAUCHE = "gauche", "left", "q"
