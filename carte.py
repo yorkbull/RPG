@@ -28,13 +28,12 @@ carte = {
           },
           "A2": {
               NOMZONE : "Les Plaines d'Izuhara",
-              DESCRIPTION : "",
+              DESCRIPTION : "blablabla",
               HAUT : "ravin",
               BAS : "A6",
               GAUCHE : "ravin",
               DROITE : "A3",
-              MAITRE : "",
-              COMBAT : "",
+              COMBAT : "True"
           },
           "A3": {
               NOMZONE : "Okuno-in",
@@ -53,7 +52,7 @@ carte = {
               BAS : "A8",
               GAUCHE : "A3",
               DROITE : "océan",
-              COMBAT : True,
+              COMBAT : "True",
               NONMONSTRE : "yurei",
               DESCRIPTIONMONSTRE : "",
               HP : 0,
@@ -67,7 +66,7 @@ carte = {
               BAS : "A9",
               GAUCHE : "ravin",
               DROITE : "A6",
-              COMBAT : True, # Le Kappa 
+              COMBAT : "True", # Le Kappa 
           },
           "A6": {
               NOMZONE : "Le donjon HIkone",
@@ -86,7 +85,7 @@ carte = {
               BAS : "A11",
               GAUCHE : "A6",
               DROITE : "A8",
-              MAITRE : True, #redonne de l'HP max if HP max ALORS XP by Sensei Jiraya
+              MAITRE : "True", #redonne de l'HP max if HP max ALORS XP by Sensei Jiraya
               DIALOGUE : "",
           },
           "A8": {
@@ -146,7 +145,7 @@ carte = {
               BAS : "océan",
               GAUCHE : "ravin",
               DROITE : "A14",
-              MAITRE : True , #Miyamoto Musashi Xp + arme 
+              MAITRE : "True" , #Miyamoto Musashi Xp + arme 
               DIALOGUE : "",
           },
           "A14": {
@@ -557,6 +556,4 @@ carte = {
             DROITE : "océan",
             COMBAT : "",
           },
-          
-
 }
