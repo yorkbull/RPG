@@ -43,23 +43,14 @@ def Credits():
   Menu()
 
 def main_game_loop():
-  joueur1.Boss == False
   while joueur1.won is False:
     jeupasfini()
 
 def jeupasfini():
-  if joueur1.Boss == False:
-    print("Ne présume pas de tes forces, entraine toi encore !!!!")
   print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~")
   print("Que veux-tu faire?")
   print("aller")
   print("quit")
-  maitre = carte[joueur1.position][MAITRE]
-  combat = carte[joueur1.position][COMBAT]
-  if combat == "True":
-    print("combat")
-  elif maitre == "True":
-    print("parler")
   action = input("> ")
   acceptable_actions = ["aller", "combat", "parler" ,"quit", "save"]
   while action.lower() not in acceptable_actions:
@@ -98,28 +89,28 @@ def move(myAction):
   destination = input(askString)
   if destination == "haut":
     move_dest = carte[joueur1.position][HAUT]
-    if move_dest == "False":
+    if move_dest == "ravin" or move_dest == "océan":
       print("tu va dans le mur")
       print("choisi un autre chemin.")
       move(myAction) 
     move_player(move_dest)   
   elif destination == "gauche":
     move_dest = carte[joueur1.position][GAUCHE]
-    if move_dest == "False":
+    if move_dest == "ravin" or move_dest == "océan":
       print("tu va dans le mur")
       print("choisi un autre chemin.")
       move(myAction)
     move_player(move_dest)
   elif destination == "droite":
     move_dest = carte[joueur1.position][DROITE]
-    if move_dest == "False":
+    if move_dest == "ravin" or move_dest == "océan":
       print("tu va dans le mur")
       print("choisi un autre chemin.")
       move(myAction)
     move_player(move_dest)
   elif destination == "bas":
     move_dest = carte[joueur1.position][BAS]
-    if move_dest == "False":
+    if move_dest == "ravin" or move_dest == "océan":
       print("tu va dans le mur")
       print("choisi un autre chemin.")
       move(myAction)
@@ -129,7 +120,6 @@ def move(myAction):
     move(myAction)
 
 def move_player(move_dest):
-	print("\nTu est en " + move_dest + ".")
 	joueur1.position = move_dest
 	print_location()
 
@@ -137,47 +127,15 @@ def move_player(move_dest):
 ###########################################################################
 # fonction de l'action ou item :
 
-def De6():
-      return randint(1,6)
 
 def Event():
-  De = De6()
-  if De < 5:
-    Combat()
-  else:
-    Item()
+  print("event")
 
 def Combat():
-  print(carte[joueur1.position][MONSTRE][NOMMONSTRE])
-  print(carte[joueur1.position][MONSTRE][DESCRIPTIONMONSTRE])
-  print("que veux-tu faire ?")
-  print("combat \n  item  \n  quit")
-  action = input("> ")
-  acceptable_actions = ["combat", "item" ,"fuir"]
-  while action.lower() not in acceptable_actions:
-    print("Action inconnue, Essaye encore.\n")
-    action = input("> ")
-  if action.lower() in ["combat"]:
-    TourParTour()
-  elif action.lower() in ["item"]:
-    print(joueur1.INVENTAIRE)
-  elif action.lower() in ["fuir"]:
-    print("Fiotte!")
-    main_game_loop()
-
-def TourParTour():
-  print("Tour")      
-  FirstBlood()
+  print("combat")
 
 def FirstBlood():
   print("Tour")
-  De = De6()
-  if De < 4 :
-    joueur1.HP = joueur1.HP + 100
-    print("Tu attaque en premier")
-  else:
-    carte[joueur1.position][MONSTRE][HP] + 100
-    print("Il a été plus rapide que toi pour lancer le combat")
 
 def Item():
   print("TODO Item")
@@ -228,7 +186,6 @@ class joueur:
         self.INVENTAIRE = []
         self.ARME = []
         self.won = False
-        self.Boss = False
 joueur1 = joueur()
 
 
