@@ -485,7 +485,7 @@ carte = {
             HAUT : "océan",
             BAS : "Port de Gili trawangan",
             GAUCHE : "P1",
-            DROITE : "océan",
+            DROITE : "Boss",
             MAITRE : "",
           },
           "Boss": {
