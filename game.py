@@ -52,7 +52,7 @@ def jeupasfini():
   print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
   print("Que veux-tu faire?")
   print("\naller")
-  print("\nquit")
+  print("quit")
   action = input("\n> ")
   acceptable_actions = ["aller", "combat", "parler" ,"quit", "save"]
   while action.lower() not in acceptable_actions:
@@ -156,18 +156,18 @@ def Pseudo():
 
 def choixpays():
     print("\njapon, tapez 1")
-    print("\nchine, tapez 2")
-    print("\nindonésie, tapez 3\n")
+    print("chine, tapez 2")
+    print("indonésie, tapez 3\n")
     Pays = int(input(">"))
     if Pays == 1:
         print("\nhistoire pays 1") # depart A1
-        return "A1"
+        return "petit village de pecheur"
     elif Pays == 2:
         print("\nhistoire pays 2") # depart B13
-        return "B13"
+        return "Grand village de Pêcheur"
     elif Pays == 3:
         print("\nhistoire pays 3") # depart C16
-        return "C16"
+        return "Village de Pêcheur abandonné"
     else:
           print("\nTu n'a pas compris la question ????")
           print("\nJe t'ai demander d'ou tu viens !!!!")
