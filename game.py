@@ -48,13 +48,11 @@ def main_game_loop():
 
 def jeupasfini():
   print("")
-  print(carte[joueur1.position][DESCRIPTION])
   print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
-  print("Que veux-tu faire?")
-  print("\naller")
-  print("quit")
+  print("Que veux-tu faire?\n")
+  AffichageAction()
   action = input("\n> ")
-  acceptable_actions = ["aller", "combat", "parler" ,"quit", "save"]
+  acceptable_actions = ["aller", "combat", "parler" ,"fuir", "save", "quit"]
   while action.lower() not in acceptable_actions:
     print("Action inconnue, Essaye encore.\n")
     action = input("> ")
@@ -64,25 +62,45 @@ def jeupasfini():
     move(action.lower())
   elif action.lower() in ["combat"]:
     Event()
+  elif action.lower() in ["fuir"]:
+    move(action.lower())
   elif action.lower() in ["parler"]:
     master()
+  elif action.lower() in ["save"] or action.lower() in ["quit"]:
+    save()
+    sys.exit()
+        
 
 
 def save():
   print("save")
+
+def AffichageAction():
+  combat = carte[joueur1.position][COMBAT]
+  maitre = carte[joueur1.position][MAITRE]
+  if combat == "Un monstre vient d'apparaitre devant toi !":
+    print("combat")
+    print("Fuir")
+  elif maitre is True:
+    print("parler")
+  else:
+    print("aller")
+    print("save/quit")
 
 ###########################################################################
 # Fonction de l'exploration :
 
 def print_location():
     	# info de la position du joueur
-	print("\n" + ("#" * (4 +len(joueur1.position))))
-	print("# " + joueur1.position.upper() + " #")
-	print("#" * (4 +len(joueur1.position)))
+    print("\n" + ("#" * (4 +len(joueur1.position))))
+    print("# " + joueur1.position.upper() + " #")
+    print("#" * (4 +len(joueur1.position)))
+    print("")
+    print(carte[joueur1.position][DESCRIPTION])
 
 def move(myAction):
-  print("\nhaut  ->   " + (carte[joueur1.position][HAUT] ))
-  print("bas   ->   " + (carte[joueur1.position][BAS] ))
+  print("\nhaut   ->   " + (carte[joueur1.position][HAUT] ))
+  print("bas      ->   " + (carte[joueur1.position][BAS] ))
   print("gauche   ->   " + (carte[joueur1.position][GAUCHE] ))
   print("droite   ->   " + (carte[joueur1.position][DROITE] ))
 
@@ -161,12 +179,15 @@ def choixpays():
     Pays = int(input(">"))
     if Pays == 1:
         print("\nhistoire pays 1") # depart A1
+        print(carte["petit village de pecheur"][DESCRIPTION])
         return "petit village de pecheur"
     elif Pays == 2:
         print("\nhistoire pays 2") # depart B13
+        print(carte["Grand village de Pêcheur"][DESCRIPTION])
         return "Grand village de Pêcheur"
     elif Pays == 3:
         print("\nhistoire pays 3") # depart C16
+        print(carte["Village de Pêcheur abandonné"][DESCRIPTION])
         return "Village de Pêcheur abandonné"
     else:
           print("\nTu n'a pas compris la question ????")
