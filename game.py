@@ -81,8 +81,11 @@ def AffichageAction():
   if combat == "Un monstre vient d'apparaitre devant toi !":
     print("combat")
     print("Fuir")
-  elif maitre =="Un homme mysterieu s'avance vers moi !":
+    print("save/quit")
+  elif maitre == "Un homme mysterieu s'avance vers moi !":
     print("parler")
+    print("aller")
+    print("save/quit")
   else:
     print("aller")
     print("save/quit")
