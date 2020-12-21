@@ -10,7 +10,7 @@ MAITRE = ""
 COMBAT = ""
 DIALOGUE = ""
 RECOMPENSE = ""
-MONSTRE = ""
+MONSTRE = {}
 DESCRIPTIF = ""
 HP = 0
 ATT = 0
@@ -30,7 +30,14 @@ carte = {
               BAS : "Le donjon HIkone",
               GAUCHE : "petit village de pecheur",
               DROITE : "Okuno-in",
-              COMBAT : "",
+              COMBAT : "Un monstre vient d'apparaitre devant toi !",
+              MONSTRE : {
+                    DESCRIPTIF : "",
+                    HP : 0,
+                    ATT : 0,
+                    DEF : 0,
+                    RECOMPENSE : None
+              },
           },
           "Okuno-in": { #A3
               DESCRIPTION : "Te voici dans le plus grand cimetière japonais ",
@@ -72,8 +79,9 @@ carte = {
               BAS : "Le Mont Fuji",
               GAUCHE : "Le donjon HIkone",
               DROITE : "Sanctuaire Shinto",
-              MAITRE : "", #redonne de l'HP max if HP max ALORS XP by Sensei Jiraya
+              MAITRE : "Un homme mysterieu s'avance vers moi !", #redonne de l'HP max if HP max ALORS XP by Sensei Jiraya
               DIALOGUE : "",
+              RECOMPENSE : None
           },
           "Sanctuaire Shinto": { #A8
               DESCRIPTION : "",

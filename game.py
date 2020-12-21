@@ -210,6 +210,7 @@ def Title():
 class joueur:
     def __init__(self):
         self.nom = ""
+        self.XP = 0
         self.HP = 100
         self.DEFENSE = 0
         self.ATTAQUE = 10
