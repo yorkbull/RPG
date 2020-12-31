@@ -8,7 +8,6 @@ screen_width = 100
 
 ####################################################
 # Fonctions du menu :
-quitgame = "quit" 
 def Menu():
   Title()
   print("                                       --------------------------------")
@@ -56,9 +55,7 @@ def jeupasfini():
   while action.lower() not in acceptable_actions:
     print("Action inconnue, Essaye encore.\n")
     action = input("> ")
-  if action.lower() == quitgame:
-    save()
-  elif action.lower() in ["aller"]:
+  if action.lower() in ["aller"]:
     move(action.lower())
   elif action.lower() in ["combat"]:
     Event()
@@ -68,27 +65,26 @@ def jeupasfini():
     master()
   elif action.lower() in ["save"] or action.lower() in ["quit"]:
     save()
-    sys.exit()
+    Menu()
         
 
 
 def save():
   print("save")
 
-def AffichageAction():
-  combat = carte[joueur1.position][COMBAT]
-  maitre = carte[joueur1.position][MAITRE]
-  if combat == "Un monstre vient d'apparaitre devant toi !":
-    print("combat")
-    print("Fuir")
-    print("save/quit")
-  elif maitre == "Un homme mysterieu s'avance vers moi !":
-    print("parler")
-    print("aller")
-    print("save/quit")
-  else:
-    print("aller")
-    print("save/quit")
+def AffichageAction ():
+      if carte[joueur1.position][ACTION] == "combat":
+            print("combat")
+            print("fuir")
+            print("save")
+      elif carte[joueur1.position][ACTION] == "maitre":
+            print("parler")
+            print("aller")
+            print("save")
+      else:
+            print("aller")
+            print("save")  
+      
 
 ###########################################################################
 # Fonction de l'exploration :
@@ -98,8 +94,7 @@ def print_location():
     print("\n" + ("#" * (4 +len(joueur1.position))))
     print("# " + joueur1.position.upper() + " #")
     print("#" * (4 +len(joueur1.position)))
-    print("")
-    print(carte[joueur1.position][DESCRIPTION])
+    print("\n" + (carte[joueur1.position][DESCRIPTION]))
 
 def move(myAction):
   print("\nhaut   ->   " + (carte[joueur1.position][HAUT] ))
@@ -145,7 +140,6 @@ def move_player(move_dest):
 	joueur1.position = move_dest
 	print_location()
 
-
 ###########################################################################
 # fonction de l'action ou item :
 
@@ -158,10 +152,18 @@ def Event():
         Item()
 
 def Combat():
-  print("combat")
+      First = FirstBlood()
+      DeAtt = De10()
+
 
 def FirstBlood():
-  print("Tour")
+      DeFirst = De10()
+      if DeFirst <= 5:
+            print("\nVous attaquez en premier")
+            return True
+      else:
+            print("\nCe monstre est rapide, il a devancé ton attaque")
+            return False
 
 def Item():
   print("TODO Item")

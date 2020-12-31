@@ -1,20 +1,14 @@
 ######################################################################################
 # carte :
 
-DESCRIPTION = ""
+DESCRIPTION = "description"
 HAUT = "haut", "up", "z"
 BAS = "bas", "down", "s"
 GAUCHE = "gauche", "left", "q"
 DROITE = "droite", "right", "d"
-MAITRE = ""
-COMBAT = ""
-DIALOGUE = ""
-RECOMPENSE = None
-MONSTRE = ""
-DESCRIPTIF = ""
-HP = 0
-ATT = 0
-DEF = 0
+ACTION = "action"
+
+
 
 carte = {
           "petit village de pecheur": { #A1
@@ -23,6 +17,7 @@ carte = {
               BAS : "Le fleuve Shinano-Gawa",
               GAUCHE : "ravin",
               DROITE : "Les Plaines d'Izuhara",
+              ACTION : "None"
           },
           "Les Plaines d'Izuhara": { #A2
               DESCRIPTION : "blablabla",
@@ -30,7 +25,7 @@ carte = {
               BAS : "Le donjon HIkone",
               GAUCHE : "petit village de pecheur",
               DROITE : "Okuno-in",
-              COMBAT : "Un monstre vient d'apparaitre devant toi !",
+              ACTION : "combat" #
           },
           "Okuno-in": { #A3
               DESCRIPTION : "Te voici dans le plus grand cimetière japonais ",
@@ -38,8 +33,7 @@ carte = {
               BAS : "Les Onsen",
               GAUCHE : "Les Plaines d'Izuhara",
               DROITE : "La Fôret Aokigahara",
-              MAITRE : "",
-              COMBAT : "",
+              ACTION : "None"
           },
           "La Fôret Aokigahara": { #A4
               DESCRIPTION : "La Fôret des suicides où les esprits des gens morts ne passe pas l'au-delà",
@@ -47,7 +41,7 @@ carte = {
               BAS : "Sanctuaire Shinto",
               GAUCHE : "Okuno-in",
               DROITE : "océan",
-              COMBAT : "", # les yurei
+              ACTION : "combat"  # les yurei
           },
           "Le fleuve Shinano-Gawa": { #A5
               DESCRIPTION : "blabla",
@@ -55,7 +49,7 @@ carte = {
               BAS : "Les chutes de Fukuroda",
               GAUCHE : "ravin",
               DROITE : "Le donjon HIkone",
-              COMBAT : "", # Le Kappa 
+              ACTION : "combat"  # Le Kappa 
           },
           "Le donjon HIkone": { #A6
               DESCRIPTION : "En suivant le fleuve vous voici face au Donjour Hikone",
@@ -63,8 +57,7 @@ carte = {
               BAS : "La fôret de Sagano",
               GAUCHE : "Le fleuve Shinano-Gawa",
               DROITE : "Les Onsen",
-              MAITRE : "",
-              COMBAT : "" ,
+              ACTION : "None"
           },
           "Les Onsen": { #A7
               DESCRIPTION : "Te voici aux sources chaudes prenez un bain thermal pour récupérer de vos combats",
@@ -72,9 +65,7 @@ carte = {
               BAS : "Le Mont Fuji",
               GAUCHE : "Le donjon HIkone",
               DROITE : "Sanctuaire Shinto",
-              MAITRE : "Un homme mysterieu s'avance vers moi !", #redonne de l'HP max if HP max ALORS XP by Sensei Jiraya
-              DIALOGUE : "",
-              RECOMPENSE : None
+              ACTION : "maitre"  #redonne de l'HP max if HP max ALORS XP by Sensei Jiraya
           },
           "Sanctuaire Shinto": { #A8
               DESCRIPTION : "",
@@ -82,8 +73,7 @@ carte = {
               BAS : "Les mines d'or de Sado",
               GAUCHE : "Les Onsen",
               DROITE : "océan",
-              MAITRE : "",
-              COMBAT : "",
+              ACTION : "None"
           },
           "Les chutes de Fukuroda": { #A9
               DESCRIPTION : "",
@@ -91,8 +81,7 @@ carte = {
               BAS : "Le Dojo",
               GAUCHE : "ravin",
               DROITE : "La fôret de Sagano",
-              MAITRE : "",
-              COMBAT : "",
+              ACTION : "None"
           },
           "La fôret de Sagano": { #A10
               DESCRIPTION : "Tu entre dans la dense Fôret de Bambou où le seul moyen de la traverser est un sentier de briques éclairé par la lumière du jours",
@@ -100,8 +89,7 @@ carte = {
               BAS : "La cité Milléniale",
               GAUCHE : "Les chutes de Fukuroda",
               DROITE : "Le Mont Fuji",
-              MAITRE : "",
-              COMBAT : "",
+              ACTION : "None"
           },
           "Le Mont Fuji": { #A11
               DESCRIPTION : "",
@@ -109,8 +97,7 @@ carte = {
               BAS : "Le Lac Ashi",
               GAUCHE : "La fôret de Sagano",
               DROITE : "Les mines d'or de Sado",
-              MAITRE : "",
-              COMBAT : "",
+              ACTION : "None"
           },
           "Les mines d'or de Sado": { #A12
               DESCRIPTION : "",
@@ -118,8 +105,7 @@ carte = {
               BAS : "PLage de Shirahama",
               GAUCHE : "Le Mont Fuji",
               DROITE : "océan",
-              MAITRE : "",
-              COMBAT : "",
+              ACTION : "None"
           },
           "Le Dojo": { #A13
               DESCRIPTION : "Bienvenue dans le Dojo où le maître Miyamoto Musashi vous attend avec impatience",
@@ -127,8 +113,8 @@ carte = {
               BAS : "océan",
               GAUCHE : "ravin",
               DROITE : "La cité Milléniale",
-              MAITRE : "" , #Miyamoto Musashi Xp + arme 
-              DIALOGUE : "",
+              ACTION : "None"
+             #Miyamoto Musashi Xp + arme 
           },
           "La cité Milléniale": { #A14
               DESCRIPTION : "",
@@ -136,8 +122,7 @@ carte = {
               BAS : "océan",
               GAUCHE : "Le Dojo",
               DROITE : "Le Lac Ashi",
-              MAITRE : "",
-              COMBAT : "",
+              ACTION : "None"
           },
           "Le Lac Ashi": { #A15
               DESCRIPTION : "",
@@ -145,8 +130,7 @@ carte = {
               BAS : "océan",
               GAUCHE : "La cité Milléniale",
               DROITE : "PLage de Shirahama",
-              MAITRE : "",
-              COMBAT : "",
+              ACTION : "None"
           },
           "PLage de Shirahama": { #A16
               DESCRIPTION : "",
@@ -154,8 +138,7 @@ carte = {
               BAS : "P2",
               GAUCHE : "Le Lac Ashi",
               DROITE : "P1",
-              MAITRE : "",
-              COMBAT : "",
+              ACTION : "None"
           },
           "les Collines de Yangshuo": { #B1
             DESCRIPTION : "Vous voici entre les collines de Yangshuo plus communémant appelé les collines de la Lune",
@@ -163,8 +146,7 @@ carte = {
             BAS : "Les Chutes d'Eau Huangguoshu",
             GAUCHE : "ravin",
             DROITE : "La Vieille Ville sur l'eau de Fenghuang",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "La Vieille Ville sur l'eau de Fenghuang": { #B2
             DESCRIPTION : "",
@@ -172,8 +154,7 @@ carte = {
             BAS : "Le désert de Gobi",
             GAUCHE : "les Collines de Yangshuo",
             DROITE : "La Fôret de Xueling",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "La Fôret de Xueling": { #B3
             DESCRIPTION : "",
@@ -181,8 +162,7 @@ carte = {
             BAS : "La Vallée de Jiuzhaigou",
             GAUCHE : "La Vieille Ville sur l'eau de Fenghuang",
             DROITE : "Plage de Qingdao",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "Plage de Qingdao": { #B4
             DESCRIPTION : "",
@@ -190,8 +170,7 @@ carte = {
             BAS : "Les Montagnes du Tiashan",
             GAUCHE : "La Fôret de Xueling",
             DROITE : "P3",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "Les Chutes d'Eau Huangguoshu": { #B5
             DESCRIPTION : "",
@@ -199,8 +178,7 @@ carte = {
             BAS : "Fleuve du Yangzi Jiang",
             GAUCHE : "ravin",
             DROITE : "Le désert de Gobi",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "Le désert de Gobi": { #B6
             DESCRIPTION : "",
@@ -208,8 +186,7 @@ carte = {
             BAS : "La Cité Interdite",
             GAUCHE : "Les Chutes d'Eau Huangguoshu",
             DROITE : "La Vallée de Jiuzhaigou",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "La Vallée de Jiuzhaigou": { #B7
             DESCRIPTION : "",
@@ -217,8 +194,7 @@ carte = {
             BAS : "La Grande Muraille",
             GAUCHE : "Le désert de Gobi",
             DROITE : "Les Montagnes du Tiashan",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "Les Montagnes du Tiashan": { #B8
             DESCRIPTION : "",
@@ -226,8 +202,7 @@ carte = {
             BAS : "Temple du Ciel Shaoline",
             GAUCHE : "La Vallée de Jiuzhaigou",
             DROITE : "océan",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "Fleuve du Yangzi Jiang": { #B9
             DESCRIPTION : "",
@@ -235,8 +210,7 @@ carte = {
             BAS : "Grand village de Pêcheur",
             GAUCHE : "ravin",
             DROITE : "La Cité Interdite",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "La Cité Interdite": { #B10
             DESCRIPTION : "",
@@ -244,8 +218,7 @@ carte = {
             BAS : "Le Palais du Potala",
             GAUCHE : "Fleuve du Yangzi Jiang",
             DROITE : "La Grande Muraille",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "La Grande Muraille": { #B11
             DESCRIPTION : "",
@@ -253,8 +226,7 @@ carte = {
             BAS : "Monastère des 10000 Bouddhas",
             GAUCHE : "La Cité Interdite",
             DROITE : "Temple du Ciel Shaoline",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "Temple du Ciel Shaoline": { #B12
             DESCRIPTION : "",
@@ -262,8 +234,7 @@ carte = {
             BAS : "Les Falaises de Xuankong",
             GAUCHE : "La Grande Muraille",
             DROITE : "océan",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "Grand village de Pêcheur": { #B13
             DESCRIPTION : "",
@@ -271,8 +242,7 @@ carte = {
             BAS : "ravin",
             GAUCHE : "ravin",
             DROITE : "Le Palais du Potala",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "Le Palais du Potala": { #B14
             DESCRIPTION : "",
@@ -280,8 +250,7 @@ carte = {
             BAS : "ravin",
             GAUCHE : "Grand village de Pêcheur",
             DROITE : "Monastère des 10000 Bouddhas",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "Monastère des 10000 Bouddhas": { #B15
             DESCRIPTION : "",
@@ -289,8 +258,7 @@ carte = {
             BAS : "ravin",
             GAUCHE : "Le Palais du Potala",
             DROITE : "Les Falaises de Xuankong",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "Les Falaises de Xuankong": { #B16
             DESCRIPTION : "",
@@ -298,8 +266,7 @@ carte = {
             BAS : "ravin",
             GAUCHE : "Monastère des 10000 Bouddhas",
             DROITE : "océan",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "Plage de Raja Ampat": { #C1
             DESCRIPTION : "Plage de Raja Ampat",
@@ -307,8 +274,7 @@ carte = {
             BAS : "Le Sanctuaire de Candi Mendut",
             GAUCHE : "P3",
             DROITE : "La Jungle de Kawah Ijen",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "La Jungle de Kawah Ijen": { #C2
             DESCRIPTION : "",
@@ -316,8 +282,7 @@ carte = {
             BAS : "Les Grottes de Leang-Leang",
             GAUCHE : "Plage de Raja Ampat",
             DROITE : "La Cité des Singes",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "La Cité des Singes": { #C3
             DESCRIPTION : "",
@@ -325,8 +290,7 @@ carte = {
             BAS : "Les plaines du Dragon de Komodo",
             GAUCHE : "La Jungle de Kawah Ijen",
             DROITE : "Le Chateau des Démons",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "Le Chateau des Démons": { #C4
             DESCRIPTION : "",
@@ -334,8 +298,7 @@ carte = {
             BAS : "Les Ruines du Borobudur",
             GAUCHE : "La Cité des Singes",
             DROITE : "ravin",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "Le Sanctuaire de Candi Mendut": { #C5
             DESCRIPTION : "",
@@ -343,8 +306,7 @@ carte = {
             BAS : "Les Montagnes de Bromo",
             GAUCHE : "océan",
             DROITE : "Les Grottes de Leang-Leang",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "Les Grottes de Leang-Leang": { #C6
             DESCRIPTION : "",
@@ -352,8 +314,7 @@ carte = {
             BAS : "Volcan du Krakatoa",
             GAUCHE : "Le Sanctuaire de Candi Mendut",
             DROITE : "Les plaines du Dragon de Komodo",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "Les plaines du Dragon de Komodo": { #C7
             DESCRIPTION : "",
@@ -361,8 +322,7 @@ carte = {
             BAS : "Les bassins d'eaux Sacrées de Pura Tirta Empul",
             GAUCHE : "Les Grottes de Leang-Leang",
             DROITE : "Les Ruines du Borobudur",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "Les Ruines du Borobudur": { #C8
             DESCRIPTION : "",
@@ -370,8 +330,7 @@ carte = {
             BAS : "La Fôret de Kalimantan",
             GAUCHE : "Les plaines du Dragon de Komodo",
             DROITE : "ravin",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "Les Montagnes de Bromo": { #C9
             DESCRIPTION : "",
@@ -379,8 +338,7 @@ carte = {
             BAS : "Les Valées du Baliem",
             GAUCHE : "océan",
             DROITE : "Volcan du Krakatoa",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "Volcan du Krakatoa": { #C10
             DESCRIPTION : "",
@@ -388,8 +346,7 @@ carte = {
             BAS : "Le Village de Sulawesi",
             GAUCHE : "Les Montagnes de Bromo",
             DROITE : "Les bassins d'eaux Sacrées de Pura Tirta Empul",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "Les bassins d'eaux Sacrées de Pura Tirta Empul": { #C11
             DESCRIPTION : "",
@@ -397,8 +354,7 @@ carte = {
             BAS : "Les Rizières de Jatiluwih",
             GAUCHE : "Volcan du Krakatoa",
             DROITE : "La Fôret de Kalimantan",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "La Fôret de Kalimantan": { #C12
             DESCRIPTION : "",
@@ -406,8 +362,7 @@ carte = {
             BAS : "Village de Pêcheur abandonné",
             GAUCHE : "Les bassins d'eaux Sacrées de Pura Tirta Empul",
             DROITE : "ravin",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "Les Valées du Baliem": { #C13
             DESCRIPTION : "",
@@ -415,8 +370,7 @@ carte = {
             BAS : "ravin",
             GAUCHE : "océan",
             DROITE : "Le Village de Sulawesi",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "Le Village de Sulawesi": { #C14
             DESCRIPTION : "",
@@ -424,8 +378,7 @@ carte = {
             BAS : "ravin",
             GAUCHE : "Les Valées du Baliem",
             DROITE : "Les Rizières de Jatiluwih",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "Les Rizières de Jatiluwih": { #C15
             DESCRIPTION : "",
@@ -433,8 +386,7 @@ carte = {
             BAS : "ravin",
             GAUCHE : "Le Village de Sulawesi",
             DROITE : "Village de Pêcheur abandonné",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "Village de Pêcheur abandonné": { #C16
             DESCRIPTION : "",
@@ -442,8 +394,7 @@ carte = {
             BAS : "ravin",
             GAUCHE : "Les Rizières de Jatiluwih",
             DROITE : "ravin",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "P1": {
             DESCRIPTION : "",
@@ -451,8 +402,7 @@ carte = {
             BAS : "océan",
             GAUCHE : "PLage de Shirahama",
             DROITE : "Le Dernier Temple du Savoir",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "P2": {
             DESCRIPTION : "",
@@ -460,8 +410,7 @@ carte = {
             BAS : "Plage de Qingdao",
             GAUCHE : "océan",
             DROITE : "océan",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "P3": {
             DESCRIPTION : "",
@@ -469,8 +418,7 @@ carte = {
             BAS : "océan",
             GAUCHE : "Plage de Qingdao",
             DROITE : "Plage de Raja Ampat",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "Port de Gili trawangan": { #P4
             DESCRIPTION : "",
@@ -478,8 +426,7 @@ carte = {
             BAS : "Plage de Raja Ampat",
             GAUCHE : "océan",
             DROITE : "océan",
-            MAITRE : "",
-            COMBAT : "",
+            ACTION : "None"
           },
           "Le Dernier Temple du Savoir": { #Temple
             DESCRIPTION : "",
@@ -487,7 +434,7 @@ carte = {
             BAS : "Port de Gili trawangan",
             GAUCHE : "P1",
             DROITE : "Boss",
-            MAITRE : "",
+            ACTION : "None"
           },
           "Boss": {
             DESCRIPTION : "",
@@ -495,6 +442,6 @@ carte = {
             BAS : "océan",
             GAUCHE : "Temple",
             DROITE : "océan",
-            COMBAT : "",
+            ACTION : "None"
           },
 }
