@@ -17,23 +17,23 @@ carte = {
               BAS : "Le fleuve Shinano-Gawa",
               GAUCHE : "ravin",
               DROITE : "Les Plaines d'Izuhara",
-              ACTION : "None"
+              ACTION : "None",
           },
           "Les Plaines d'Izuhara": { #A2
-              DESCRIPTION : "blablabla",
+              DESCRIPTION : "Les Plaines d'Izuhara lieu ou autre fois les plus grands samouraïs se retrouvaient pour des duels et batailles épics",
               HAUT : "ravin",
               BAS : "Le donjon HIkone",
               GAUCHE : "petit village de pecheur",
               DROITE : "Okuno-in",
-              ACTION : "combat" #
+              ACTION : "combat", # ronin
           },
           "Okuno-in": { #A3
-              DESCRIPTION : "Te voici dans le plus grand cimetière japonais ",
+              DESCRIPTION : "Te voici dans le plus grand cimetière japonais, ici git les plus grands guerriers du Japon",
               HAUT : "ravin",
               BAS : "Les Onsen",
               GAUCHE : "Les Plaines d'Izuhara",
               DROITE : "La Fôret Aokigahara",
-              ACTION : "None"
+              ACTION : "combat", #le Kasha
           },
           "La Fôret Aokigahara": { #A4
               DESCRIPTION : "La Fôret des suicides où les esprits des gens morts ne passe pas l'au-delà",
@@ -41,47 +41,47 @@ carte = {
               BAS : "Sanctuaire Shinto",
               GAUCHE : "Okuno-in",
               DROITE : "océan",
-              ACTION : "combat"  # les yurei
+              ACTION : "combat",  # les yurei
           },
           "Le fleuve Shinano-Gawa": { #A5
-              DESCRIPTION : "blabla",
+              DESCRIPTION : "Le Fleuve Shinano_Gawa, le fleuve le plus long du Japon te fera beaucoup marché tu devras t'armée de patience et de courage car des pièges t'y attendent",
               HAUT : "petit village de pecheur",
               BAS : "Les chutes de Fukuroda",
               GAUCHE : "ravin",
               DROITE : "Le donjon HIkone",
-              ACTION : "combat"  # Le Kappa 
+              ACTION : "combat",  # Le Kappa 
           },
           "Le donjon HIkone": { #A6
-              DESCRIPTION : "En suivant le fleuve vous voici face au Donjour Hikone",
+              DESCRIPTION : "En suivant le fleuve vous voici face au Donjon Hikone",
               HAUT : "Les Plaines d'Izuhara",
               BAS : "La fôret de Sagano",
               GAUCHE : "Le fleuve Shinano-Gawa",
               DROITE : "Les Onsen",
-              ACTION : "None"
+              ACTION : "None", #item 
           },
           "Les Onsen": { #A7
-              DESCRIPTION : "Te voici aux sources chaudes prenez un bain thermal pour récupérer de vos combats",
+              DESCRIPTION : "Aux sources chaudes prenez un bain thermal pour récupérer de vos combats",
               HAUT : "Okuno-in",
               BAS : "Le Mont Fuji",
               GAUCHE : "Le donjon HIkone",
               DROITE : "Sanctuaire Shinto",
-              ACTION : "maitre"  #redonne de l'HP max if HP max ALORS XP by Sensei Jiraya
+              ACTION : "maitre",  #redonne de l'HP max if HP max ALORS XP by Sensei Jiraya
           },
           "Sanctuaire Shinto": { #A8
-              DESCRIPTION : "",
+              DESCRIPTION : "Le sanctuaire inviolable abrite un secret bien gardé...Mais lequel ?",
               HAUT : "La Fôret Aokigahara",
               BAS : "Les mines d'or de Sado",
               GAUCHE : "Les Onsen",
               DROITE : "océan",
-              ACTION : "None"
+              ACTION : "combat", #le Otoroshi
           },
           "Les chutes de Fukuroda": { #A9
-              DESCRIPTION : "",
+              DESCRIPTION : "Ressource toi dans les chutes de Fukuroda , son eau est réputé pour vous faire de bon massage mais attention à ce qui s'y cache...",
               HAUT : "Le fleuve Shinano-Gawa",
               BAS : "Le Dojo",
               GAUCHE : "ravin",
               DROITE : "La fôret de Sagano",
-              ACTION : "None"
+              ACTION : "combat", #Nure-Ona
           },
           "La fôret de Sagano": { #A10
               DESCRIPTION : "Tu entre dans la dense Fôret de Bambou où le seul moyen de la traverser est un sentier de briques éclairé par la lumière du jours",
@@ -89,23 +89,23 @@ carte = {
               BAS : "La cité Milléniale",
               GAUCHE : "Les chutes de Fukuroda",
               DROITE : "Le Mont Fuji",
-              ACTION : "None"
+              ACTION : "maitre", # Kodama le guide la fôret
           },
           "Le Mont Fuji": { #A11
-              DESCRIPTION : "",
+              DESCRIPTION : "que trouverez-vous au pied de se stratovolcan qui n'attend qu'une seule chose qui est d'exploser",
               HAUT : "Les Onsen",
               BAS : "Le Lac Ashi",
               GAUCHE : "La fôret de Sagano",
               DROITE : "Les mines d'or de Sado",
-              ACTION : "None"
+              ACTION : "combat",# Kitsune 
           },
           "Les mines d'or de Sado": { #A12
-              DESCRIPTION : "",
+              DESCRIPTION : "Dans ces mines desertés par l'homme rode un monstre qui veille sur l'or introduite dans ces roches",
               HAUT : "Sanctuaire Shinto",
               BAS : "PLage de Shirahama",
               GAUCHE : "Le Mont Fuji",
               DROITE : "océan",
-              ACTION : "None"
+              ACTION : "combat",#Rokurokubi
           },
           "Le Dojo": { #A13
               DESCRIPTION : "Bienvenue dans le Dojo où le maître Miyamoto Musashi vous attend avec impatience",
@@ -113,32 +113,31 @@ carte = {
               BAS : "océan",
               GAUCHE : "ravin",
               DROITE : "La cité Milléniale",
-              ACTION : "None"
-             #Miyamoto Musashi Xp + arme 
+              ACTION : "maitre",  #Miyamoto Musashi Xp + arme 
           },
           "La cité Milléniale": { #A14
-              DESCRIPTION : "",
+              DESCRIPTION : "Te voici dans la Cité la plus vieille du Japon tu pourras y trouver du beau monde",
               HAUT : "La fôret de Sagano",
               BAS : "océan",
               GAUCHE : "Le Dojo",
               DROITE : "Le Lac Ashi",
-              ACTION : "None"
+              ACTION : "maitre",# réponse enigme Japon 
           },
           "Le Lac Ashi": { #A15
-              DESCRIPTION : "",
+              DESCRIPTION : "ce Lac est un belle endroit pour s'y reposer et manger quelque chose , il est temps de mediter",
               HAUT : "Le Mont Fuji",
               BAS : "océan",
               GAUCHE : "La cité Milléniale",
               DROITE : "PLage de Shirahama",
-              ACTION : "None"
+              ACTION : "None", # trouver de la nourriture HP 
           },
           "PLage de Shirahama": { #A16
-              DESCRIPTION : "",
+              DESCRIPTION : "Profite de cette plage, surement l'un de tes rares moment de repos",
               HAUT : "Les mines d'or de Sado",
               BAS : "P2",
               GAUCHE : "Le Lac Ashi",
               DROITE : "P1",
-              ACTION : "None"
+              ACTION : "None",
           },
           "les Collines de Yangshuo": { #B1
             DESCRIPTION : "Vous voici entre les collines de Yangshuo plus communémant appelé les collines de la Lune",
@@ -146,31 +145,31 @@ carte = {
             BAS : "Les Chutes d'Eau Huangguoshu",
             GAUCHE : "ravin",
             DROITE : "La Vieille Ville sur l'eau de Fenghuang",
-            ACTION : "None"
+            ACTION : "None",
           },
-          "La Vieille Ville sur l'eau de Fenghuang": { #B2
-            DESCRIPTION : "",
+          "La Vieille Ville de Fenghuang": { #B2
+            DESCRIPTION : "La Ville Fenghuang, réputer pour avoir ces batiments sur l'eau d'une rivière dont l'eau reguorge de ressources,gard à celui qui n'appartient pas à ce village... ",
             HAUT : "océan",
             BAS : "Le désert de Gobi",
             GAUCHE : "les Collines de Yangshuo",
             DROITE : "La Fôret de Xueling",
-            ACTION : "None"
+            ACTION : "combat",# le phoenix a 9 têtes le fenghuang
           },
           "La Fôret de Xueling": { #B3
-            DESCRIPTION : "",
+            DESCRIPTION : "40 millions d'années que cette fôrets existe et je vous laisse imaginer ce que vous y trouverez à l'intérieur...",
             HAUT : "océan",
             BAS : "La Vallée de Jiuzhaigou",
             GAUCHE : "La Vieille Ville sur l'eau de Fenghuang",
             DROITE : "Plage de Qingdao",
-            ACTION : "None"
+            ACTION : "maitre", # wukong
           },
           "Plage de Qingdao": { #B4
-            DESCRIPTION : "",
+            DESCRIPTION : "Paradis et chemin vers ton salut, profite...",
             HAUT : "P2",
             BAS : "Les Montagnes du Tiashan",
             GAUCHE : "La Fôret de Xueling",
             DROITE : "P3",
-            ACTION : "None"
+            ACTION : "None",
           },
           "Les Chutes d'Eau Huangguoshu": { #B5
             DESCRIPTION : "",
@@ -178,31 +177,31 @@ carte = {
             BAS : "Fleuve du Yangzi Jiang",
             GAUCHE : "ravin",
             DROITE : "Le désert de Gobi",
-            ACTION : "None"
+            ACTION : "combat", #Mogwai
           },
           "Le désert de Gobi": { #B6
-            DESCRIPTION : "",
+            DESCRIPTION : "En plein milieu de toutes ces montagnes, ces fôrets et rivières y est incrusté un endroit aride bienvenue dans le désert du Gobi",
             HAUT : "La Vieille Ville sur l'eau de Fenghuang",
             BAS : "La Cité Interdite",
             GAUCHE : "Les Chutes d'Eau Huangguoshu",
             DROITE : "La Vallée de Jiuzhaigou",
-            ACTION : "None"
+            ACTION : "None",
           },
           "La Vallée de Jiuzhaigou": { #B7
-            DESCRIPTION : "",
+            DESCRIPTION : "Une petite Oasis au milieu de tout ",
             HAUT : "La Fôret de Xueling",
             BAS : "La Grande Muraille",
             GAUCHE : "Le désert de Gobi",
             DROITE : "Les Montagnes du Tiashan",
-            ACTION : "None"
+            ACTION : "None",
           },
           "Les Montagnes du Tiashan": { #B8
-            DESCRIPTION : "",
+            DESCRIPTION : "Les Montagnes du Tiashan cache on son sein des cavernes bien cacher par la végétation attention, elles ne sont pas toujours vides...",
             HAUT : "Plage de Qingdao",
             BAS : "Temple du Ciel Shaoline",
             GAUCHE : "La Vallée de Jiuzhaigou",
             DROITE : "océan",
-            ACTION : "None"
+            ACTION : "combat", #Long le dragon
           },
           "Fleuve du Yangzi Jiang": { #B9
             DESCRIPTION : "",
@@ -210,7 +209,7 @@ carte = {
             BAS : "Grand village de Pêcheur",
             GAUCHE : "ravin",
             DROITE : "La Cité Interdite",
-            ACTION : "None"
+            ACTION : "None",
           },
           "La Cité Interdite": { #B10
             DESCRIPTION : "",
@@ -218,7 +217,7 @@ carte = {
             BAS : "Le Palais du Potala",
             GAUCHE : "Fleuve du Yangzi Jiang",
             DROITE : "La Grande Muraille",
-            ACTION : "None"
+            ACTION : "combat", # Shi 
           },
           "La Grande Muraille": { #B11
             DESCRIPTION : "",
@@ -226,23 +225,23 @@ carte = {
             BAS : "Monastère des 10000 Bouddhas",
             GAUCHE : "La Cité Interdite",
             DROITE : "Temple du Ciel Shaoline",
-            ACTION : "None"
+            ACTION : "combat", # Le dernier guerrier d'argile
           },
           "Temple du Ciel Shaoline": { #B12
-            DESCRIPTION : "",
+            DESCRIPTION : "La 36ème chambre de shaoline où l'art du kung fu n'aura plus de secret pour toi.",
             HAUT : "Les Montagnes du Tiashan",
             BAS : "Les Falaises de Xuankong",
             GAUCHE : "La Grande Muraille",
             DROITE : "océan",
-            ACTION : "None"
+            ACTION : "maitre", #Maître Shaoline
           },
           "Grand village de Pêcheur": { #B13
-            DESCRIPTION : "",
+            DESCRIPTION : "Bienvenue sur l'une des plus anciennes civilisations du monde combattant céleste , \n l'empire du milieu te réservera bien des surprises dans ta quête vers Yashin que le chi soit avec toi.",
             HAUT : "Fleuve du Yangzi Jiang",
             BAS : "ravin",
             GAUCHE : "ravin",
             DROITE : "Le Palais du Potala",
-            ACTION : "None"
+            ACTION : "None",
           },
           "Le Palais du Potala": { #B14
             DESCRIPTION : "",
@@ -250,7 +249,7 @@ carte = {
             BAS : "ravin",
             GAUCHE : "Grand village de Pêcheur",
             DROITE : "Monastère des 10000 Bouddhas",
-            ACTION : "None"
+            ACTION : "None",
           },
           "Monastère des 10000 Bouddhas": { #B15
             DESCRIPTION : "",

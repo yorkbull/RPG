@@ -2,6 +2,7 @@ import sys
 import os
 from random import randint
 from carte import *
+from monstre import *
 screen_width = 100
 
 
@@ -31,7 +32,7 @@ def LancerLeJeux():
   joueur1.nom = Pseudo()
   print("\nTu a une tête bizarre , Tu viens d'ou ?")
   joueur1.position = choixpays()
-  main_game_loop()
+  jeupasfini()
 
 def ChargerPartie():
   print("TODO chargerpartir")
@@ -40,10 +41,6 @@ def ChargerPartie():
 def Credits():
   print("TODO credits")
   Menu()
-
-def main_game_loop():
-  while joueur1.won is False:
-    jeupasfini()
 
 def jeupasfini():
   print("")
@@ -67,17 +64,35 @@ def jeupasfini():
     save()
     Menu()
         
-
+def combatWin():
+      print("")
+      print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
+      print("Que veux-tu faire?\n")
+      print("aller")
+      print("save")
+      action = input("\n> ")
+      acceptable_actions = ["aller", "combat", "parler" ,"fuir", "save", "quit"]
+      while action.lower() not in acceptable_actions:
+        print("Action inconnue, Essaye encore.\n")
+        action = input("> ")
+      if action.lower() in ["aller"]:
+        move(action.lower())
+      elif action.lower() in ["save"] or action.lower() in ["quit"]:
+        save()
+        Menu()
 
 def save():
   print("save")
 
 def AffichageAction ():
       if carte[joueur1.position][ACTION] == "combat":
+            print("\n", monstre[joueur1.position][NOM], "vient d'apparaitre devant toi!")
+            print("Il a", monstre[joueur1.position][HP], "de vie.\n")
             print("combat")
             print("fuir")
             print("save")
       elif carte[joueur1.position][ACTION] == "maitre":
+            print("\nUn homme mysterieu s'avance devant toi.\n")
             print("parler")
             print("aller")
             print("save")
@@ -85,7 +100,9 @@ def AffichageAction ():
             print("aller")
             print("save")  
       
-
+def GameOver():
+      print("GAME OVER !")
+      Menu()
 ###########################################################################
 # Fonction de l'exploration :
 
@@ -95,7 +112,7 @@ def print_location():
     print("# " + joueur1.position.upper() + " #")
     print("#" * (4 +len(joueur1.position)))
     print("\n" + (carte[joueur1.position][DESCRIPTION]))
-
+    jeupasfini()
 def move(myAction):
   print("\nhaut   ->   " + (carte[joueur1.position][HAUT] ))
   print("bas      ->   " + (carte[joueur1.position][BAS] ))
@@ -146,15 +163,60 @@ def move_player(move_dest):
 
 def Event():
   DeChoix = De10()
-  if DeChoix <= 5:
+  if DeChoix <= 7:
         Combat()
   else:
         Item()
 
 def Combat():
+      hpm = monstre[joueur1.position][HP]
       First = FirstBlood()
-      DeAtt = De10()
-
+      i = 1
+      while monstre[joueur1.position][HP] > 0:
+            if First == True:
+                  print("\nTour",i)
+                  DeDeff = De10()
+                  if DeDeff >= 7:
+                        print(monstre[joueur1.position][NOM], "a esquivé votre attaque.")
+                  else:
+                        monstre[joueur1.position][HP] = (monstre[joueur1.position][HP] + monstre[joueur1.position][ATT]) - joueur1.ATTAQUE
+                        print(monstre[joueur1.position][NOM],"a subi",joueur1.ATTAQUE, "de dégâts.")
+                  DeDeff = De10()
+                  if DeDeff >= 6:
+                        print("Vous avez esquivé l'attaque.")
+                  else:
+                        joueur1.HP = (joueur1.HP + joueur1.DEFENSE) - monstre[joueur1.position][ATT]
+                        print("Vous avez subi", monstre[joueur1.position][ATT], "de dégâts.")
+                  print("Il te reste", joueur1.HP, "de vie.")
+                  print("Il reste", monstre[joueur1.position][HP], "au", monstre[joueur1.position][NOM])
+                  if monstre[joueur1.position][HP] == 0:
+                        Win()
+                        combatWin()
+                  elif joueur1.HP == 0:
+                        GameOver()
+            else:
+                  print("\nTour",i)
+                  DeDeff = De10()
+                  if DeDeff >= 6:
+                        print("Vous avez esquivé l'attaque.")
+                  else:
+                        joueur1.HP = (joueur1.HP + joueur1.DEFENSE) - monstre[joueur1.position][ATT]
+                        print("Vous avez subi", monstre[joueur1.position][ATT], "de dégâts.")
+                  DeDeff = De10()
+                  if DeDeff >= 7:
+                        print(monstre[joueur1.position][NOM], "a esquivé votre attaque.")
+                  else:
+                        monstre[joueur1.position][HP] = (monstre[joueur1.position][HP] + monstre[joueur1.position][ATT]) - joueur1.ATTAQUE
+                        print(monstre[joueur1.position][NOM],"a subi",joueur1.ATTAQUE, "de dégâts.")
+                  print("Il te reste", joueur1.HP, "de vie.")
+                  print("Il reste", monstre[joueur1.position][HP], "au", monstre[joueur1.position][NOM])
+                  if monstre[joueur1.position][HP] == 0:
+                        monstre[joueur1.position][HP] = hpm
+                        Win()
+                        combatWin()
+                  elif joueur1.HP == 0:
+                        GameOver()
+            i = i + 1                                                            
 
 def FirstBlood():
       DeFirst = De10()
@@ -172,7 +234,11 @@ def master():
   print("master")
 
 def De10():
-  return randint(1,10)  
+  return randint(1,10)
+
+def Win():
+  print("\ngagné\n")
+  print("TODO recompense")  
 
 ###########################################################################
 # intro :
@@ -188,7 +254,7 @@ def choixpays():
     print("indonésie, tapez 3\n")
     Pays = int(input(">"))
     if Pays == 1:
-        print("\nhistoire pays 1") # depart A1
+        print("\nFils Unique du plus grand de tout les samouraïs, ") # depart A1
         print(carte["petit village de pecheur"][DESCRIPTION])
         return "petit village de pecheur"
     elif Pays == 2:
