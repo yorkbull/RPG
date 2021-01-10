@@ -234,14 +234,14 @@ def Item():
   print("TODO Item")
   DeItem = De10()
   if DeItem <= 5:
-        if len(joueur1.INVENTAIRE[0]) >= 0:
+        if len(joueur1.INVENTAIRE[0]) >= 2:
               print("Tu n'a plus de place pour ce type de Bonus!")
               combatWin()
         else:   
               print("Tu a gagné un bonus d'attaque.")
               joueur1.INVENTAIRE[0].append("Bonus d'Attaque")
   else:
-        if len(joueur1.INVENTAIRE[1]) >= 0:
+        if len(joueur1.INVENTAIRE[1]) >= 2:
               print("Tu n'a plus de place pour ce type de Bonus!")
               combatWin()
         else:
