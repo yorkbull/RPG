@@ -113,6 +113,7 @@ def print_location():
     print("#" * (4 +len(joueur1.position)))
     print("\n" + (carte[joueur1.position][DESCRIPTION]))
     jeupasfini()
+
 def move(myAction):
   print("\nhaut   ->   " + (carte[joueur1.position][HAUT] ))
   print("bas      ->   " + (carte[joueur1.position][BAS] ))
@@ -164,6 +165,7 @@ def move_player(move_dest):
 def Event():
   DeChoix = De10()
   if DeChoix <= 7:
+        choixItem()
         Combat()
   else:
         Item()
@@ -190,6 +192,7 @@ def Combat():
                   print("Il te reste", joueur1.HP, "de vie.")
                   print("Il reste", monstre[joueur1.position][HP], "au", monstre[joueur1.position][NOM])
                   if monstre[joueur1.position][HP] == 0:
+                        monstre[joueur1.position][HP] = hpm
                         Win()
                         combatWin()
                   elif joueur1.HP == 0:
@@ -229,6 +232,38 @@ def FirstBlood():
 
 def Item():
   print("TODO Item")
+  DeItem = De10()
+  if DeItem <= 5:
+        if len(joueur1.INVENTAIRE[0]) >= 0:
+              print("Tu n'a plus de place pour ce type de Bonus!")
+              combatWin()
+        else:   
+              print("Tu a gagné un bonus d'attaque.")
+              joueur1.INVENTAIRE[0].append("Bonus d'Attaque")
+  else:
+        if len(joueur1.INVENTAIRE[1]) >= 0:
+              print("Tu n'a plus de place pour ce type de Bonus!")
+              combatWin()
+        else:
+              print("Tu a gagné un bonus de Defense.")
+              joueur1.INVENTAIRE[1].append("Bonus de Defense")
+  combatWin()
+
+def choixItem():
+  print("\nUtilisez un Bonus pour le combat ?")
+  print("\n oui / non ")
+  choixI = str(input("> "))
+  if choixI == "oui" or choixI == "o":
+        print("Tu a", len(joueur1.INVENTAIRE[0]), "Bonus d'Attaque.")
+        print("Tu a", len(joueur1.INVENTAIRE[1]), "Bonus de Defense.")
+        Combat()
+  elif choixI == "non" or choixI == "n":
+        Combat()
+  else:
+        print("Je n'ai pas compris, recommence")
+        choixI = str(input())
+
+
 
 def master():
   print("master")
@@ -288,7 +323,7 @@ class joueur:
         self.DEFENSE = 0
         self.ATTAQUE = 10
         self.position = ""
-        self.INVENTAIRE = []
+        self.INVENTAIRE = [[],[]]
         self.ARME = []
         self.won = False
 joueur1 = joueur()
