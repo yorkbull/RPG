@@ -62,7 +62,7 @@ monstre = {
                  HP : 0,
                  ATT : 0,
                  DEF : 0,
-                 RECOMPENSE : ["Armure d'expérience", 100, 0, 20, 0]
+                 RECOMPENSE : ["Armure d'expérience", 0, 0, 20, 0]
             },
 
             "Sanctuaire Shinto" : { # A8
@@ -98,7 +98,7 @@ monstre = {
                 HP : 100,
                 ATT : 40,
                 DEF : 0,
-                RECOMPENSE : ["La yari", 100, 0, 0, 25]
+                RECOMPENSE : ["La yari", 0, 0, 0, 25]
 
             },
 
@@ -117,7 +117,7 @@ monstre = {
                 HP : 0,
                 ATT : 0,
                 DEF : 0,
-                RECOMPENSE : ["le Nodashi", 100, 0, 0, 40]
+                RECOMPENSE : ["le Nodashi", 0, 0, 0, 40]
             },
 
             
@@ -130,7 +130,7 @@ monstre = {
                 HP : 0,
                 ATT : 0,
                 DEF : 0,
-                RECOMPENSE : ["lotus d'expérience", 200, 0, 0, 5]
+                RECOMPENSE : ["lotus d'expérience", 0, 0, 0, 5]
             },
 
             "La Vieille Ville de Fenghuang" : { # B2
@@ -166,7 +166,7 @@ monstre = {
                 HP : 90,
                 ATT : 15,
                 DEF : 10,
-                RECOMPENSE : ["Dao", 100, 0, 0, 15]
+                RECOMPENSE : ["Dao", 0, 0, 0, 15]
             },
 
             "Le désert de Gobi" : { #B6
@@ -211,7 +211,7 @@ monstre = {
                 HP : 95,
                 ATT : 2,
                 DEF : 100,
-                RECOMPENSE : ["Arme Fu", 100, 0, 0, 30]
+                RECOMPENSE : ["Arme Fu", 0, 0, 0, 30]
             },
 
             "La Grande Muraille" : { #B11
@@ -229,7 +229,7 @@ monstre = {
                 HP : 0,
                 ATT : 0,
                 DEF : 0,
-                RECOMPENSE : ["baton de Shaoline", 100, 0, 20, 10] 
+                RECOMPENSE : ["baton de Shaoline", 0, 0, 20, 10] 
             },
 
             "Le Palais du Potala" : { #B14
@@ -238,7 +238,7 @@ monstre = {
                 HP : 0,
                 ATT : 0,
                 DEF : 0,
-                RECOMPENSE : ["Repos spirituel", 100, 20, 0, 0] 
+                RECOMPENSE : ["Repos spirituel", 0, 20, 0, 0] 
             },
 
             "Monastère des 10000 Bouddhas" : { #B15
@@ -255,7 +255,7 @@ monstre = {
                 HP : 80,
                 ATT : 5,
                 DEF : 80,
-                RECOMPENSE : ["Coeur du Golem", 50, 10, 0, 0]
+                RECOMPENSE : ["Coeur du Golem", 0, 10, 0, 0]
     },
 
     ##### MOnstres et maitres indonesien
@@ -354,7 +354,7 @@ monstre = {
                 HP : 30,
                 ATT : 30,
                 DEF : 0,
-                RECOMPENSE : ["Griffe de tigre", 100, 10, 0, 0] 
+                RECOMPENSE : ["Griffe de tigre", 0, 10, 0, 0] 
     },
 
             "La Fôret de Kalimantan" : { #C12 maitre
@@ -363,7 +363,7 @@ monstre = {
                 HP : 0,
                 ATT : 0,
                 DEF : 0,
-                RECOMPENSE : ["Esprit du Barong", 100, 10, 20, 0] 
+                RECOMPENSE : ["Esprit du Barong", 0, 10, 20, 0] 
     },
 
             "Les Valées du Baliem" : { #C13
@@ -381,7 +381,7 @@ monstre = {
                 HP : 25,
                 ATT : 10,
                 DEF : 25,
-                RECOMPENSE : ["Karambit", 50, 0, 0, 10]
+                RECOMPENSE : ["Karambit", 0, 0, 0, 10]
     },
 
             "Les Rizières de Jatiluwih" : { #C15

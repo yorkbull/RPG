@@ -292,8 +292,31 @@ def De10():
   return randint(1,10)
 
 def Win():
-  print("\ngagné\n")
-  print("TODO recompense")  
+      print("\ngagné\n")
+      print("Tu a gagné,", monstre[joueur1.position][RECOMPENSE][0])
+      if monstre[joueur1.position][RECOMPENSE][1] > 0:
+            print(monstre[joueur1.position][RECOMPENSE][0], "donne", monstre[joueur1.position][RECOMPENSE][1], "d'xp.")
+      if monstre[joueur1.position][RECOMPENSE][2] > 0:
+            print(monstre[joueur1.position][RECOMPENSE][0], "donne", monstre[joueur1.position][RECOMPENSE][2], "de vie.")
+      if monstre[joueur1.position][RECOMPENSE][3] > 0:
+            print(monstre[joueur1.position][RECOMPENSE][0], "donne", monstre[joueur1.position][RECOMPENSE][3], "de défense.")
+      if monstre[joueur1.position][RECOMPENSE][4] > 0:
+            print(monstre[joueur1.position][RECOMPENSE][0], "donne", monstre[joueur1.position][RECOMPENSE][4], "d'attaque.")
+      print("\nVeux-tu garder cette récompense ?")
+      print("\n oui / non ")
+      choixI = str(input("> "))
+      if choixI == "oui" or choixI == "o":
+            if monstre[joueur1.position][RECOMPENSE][1] > 0:
+                  joueur1.XP = joueur1.XP + monstre[joueur1.position][RECOMPENSE][1]
+            else:
+                  joueur1.ARME = monstre[joueur1.position][RECOMPENSE]
+                  print(joueur1.ARME[0], "est désormais ton arme.")
+      elif choixI == "non" or choixI == "n":
+            combatWin()
+      else:
+            print("Je n'ai pas compris, recommence")
+            choixI = str(input())
+
 
 ###########################################################################
 # intro :
