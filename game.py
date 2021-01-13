@@ -181,13 +181,13 @@ def Combat():
                   if DeDeff >= 7:
                         print(monstre[joueur1.position][NOM], "a esquivé votre attaque.")
                   else:
-                        monstre[joueur1.position][HP] = (monstre[joueur1.position][HP] + monstre[joueur1.position][ATT]) - joueur1.ATTAQUE
-                        print(monstre[joueur1.position][NOM],"a subi",joueur1.ATTAQUE, "de dégâts.")
+                        monstre[joueur1.position][HP] = (monstre[joueur1.position][HP] + monstre[joueur1.position][ATT]) - (joueur1.ATTAQUE + joueur1.ARME[4])
+                        print(monstre[joueur1.position][NOM],"a subi",(joueur1.ATTAQUE + monstre[joueur1.position][RECOMPENSE][4]), "de dégâts.")
                   DeDeff = De10()
                   if DeDeff >= 6:
                         print("Vous avez esquivé l'attaque.")
                   else:
-                        joueur1.HP = (joueur1.HP + joueur1.DEFENSE) - monstre[joueur1.position][ATT]
+                        joueur1.HP = (joueur1.HP + joueur1.DEFENSE + joueur1.ARME[3]) - monstre[joueur1.position][ATT]
                         print("Vous avez subi", monstre[joueur1.position][ATT], "de dégâts.")
                   print("Il te reste", joueur1.HP, "de vie.")
                   print("Il reste", monstre[joueur1.position][HP], "au", monstre[joueur1.position][NOM])
@@ -203,13 +203,13 @@ def Combat():
                   if DeDeff >= 6:
                         print("Vous avez esquivé l'attaque.")
                   else:
-                        joueur1.HP = (joueur1.HP + joueur1.DEFENSE) - monstre[joueur1.position][ATT]
+                        joueur1.HP = (joueur1.HP + joueur1.DEFENSE + joueur1.ARME[3]) - monstre[joueur1.position][ATT]
                         print("Vous avez subi", monstre[joueur1.position][ATT], "de dégâts.")
                   DeDeff = De10()
                   if DeDeff >= 7:
                         print(monstre[joueur1.position][NOM], "a esquivé votre attaque.")
                   else:
-                        monstre[joueur1.position][HP] = (monstre[joueur1.position][HP] + monstre[joueur1.position][ATT]) - joueur1.ATTAQUE
+                        monstre[joueur1.position][HP] = (monstre[joueur1.position][HP] + monstre[joueur1.position][ATT]) - (joueur1.ATTAQUE + joueur1.ARME[4])
                         print(monstre[joueur1.position][NOM],"a subi",joueur1.ATTAQUE, "de dégâts.")
                   print("Il te reste", joueur1.HP, "de vie.")
                   print("Il reste", monstre[joueur1.position][HP], "au", monstre[joueur1.position][NOM])
@@ -367,7 +367,7 @@ class joueur:
         self.ATTAQUE = 10
         self.position = ""
         self.INVENTAIRE = [[],[]]
-        self.ARME = []
+        self.ARME = ["a", 0, 0, 0, 0]
         self.won = False
 joueur1 = joueur()
 
