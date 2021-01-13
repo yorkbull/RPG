@@ -1,8 +1,8 @@
 import sys
 import os
 from random import randint
-from carte import *
-from monstre import *
+from carte2 import *
+from monstre2 import *
 screen_width = 100
 
 
@@ -256,6 +256,26 @@ def choixItem():
   if choixI == "oui" or choixI == "o":
         print("Tu a", len(joueur1.INVENTAIRE[0]), "Bonus d'Attaque.")
         print("Tu a", len(joueur1.INVENTAIRE[1]), "Bonus de Defense.")
+        print("1 : Bonus d'Attaque.")
+        print("2 : bonus de Defense")
+        choixB = int(input())
+        if choixB == 1:
+              if len(joueur1.INVENTAIRE[0]) == 0:
+                    print("Pas de bonus")
+              else:
+                    joueur1.INVENTAIRE[0].pop()
+                    joueur1.ATTAQUE = joueur1.ATTAQUE + 10
+                    return "ATT"
+        elif choixB == 2:
+              if len(joueur1.INVENTAIRE[1]) == 0:
+                    print("Pas de bonus")
+              else:
+                    joueur1.INVENTAIRE[1].pop()
+                    joueur1.DEFENSE = joueur1.DEFENSE + 20
+                    return "DEF"
+        else:
+              print("Je n'ai pas compris!")
+              choixB = int(input())
         Combat()
   elif choixI == "non" or choixI == "n":
         Combat()
@@ -289,15 +309,15 @@ def choixpays():
     print("indonésie, tapez 3\n")
     Pays = int(input(">"))
     if Pays == 1:
-        print("\nFils Unique du plus grand de tout les samouraïs, ") # depart A1
+        print("\nFils Unique du plus grand de tout les samouraïs, \n cherche à devenir plus fort que son père et seul \n la quête vers le dieu yashin lui permettra d'y parvenir...") # depart A1
         print(carte["petit village de pecheur"][DESCRIPTION])
         return "petit village de pecheur"
     elif Pays == 2:
-        print("\nhistoire pays 2") # depart B13
+        print("\nEnfant orphelin de l'empire céleste,\n te voilà décidé à retrouver celui qui tua tes parents et toutes ta famille \n après des années d'entrainement te voilà pret avec un seul mot en bouche VENGEANCE")# depart B13
         print(carte["Grand village de Pêcheur"][DESCRIPTION])
         return "Grand village de Pêcheur"
     elif Pays == 3:
-        print("\nhistoire pays 3") # depart C16
+        print("\nLa seule chose que tu sais en te réveillant au beau milieu de ce village abndonné,\n n'est que ton nom et une voix te disant 'trouve Yashin et tu le saura' ") # depart C16
         print(carte["Village de Pêcheur abandonné"][DESCRIPTION])
         return "Village de Pêcheur abandonné"
     else:
@@ -328,6 +348,25 @@ class joueur:
         self.won = False
 joueur1 = joueur()
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Menu()
 
 
 
