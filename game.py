@@ -1,8 +1,8 @@
 import sys
 import os
 from random import randint
-from carte2 import *
-from monstre2 import *
+from carte import *
+from monstre import *
 screen_width = 100
 
 
