@@ -1,8 +1,8 @@
 import sys
 import os
 from random import randint
-from carte2 import *
-from monstre2 import *
+from carte import *
+from monstre import *
 screen_width = 100
 
 
@@ -39,7 +39,7 @@ def ChargerPartie():
 
 
 def Credits():
-  print("TODO credits")
+  print("dadadada")
   Menu()
 
 def jeupasfini():
@@ -71,7 +71,7 @@ def combatWin():
       print("aller")
       print("save")
       action = input("\n> ")
-      acceptable_actions = ["aller",  "save", "quit"]
+      acceptable_actions = ["aller", "combat", "parler" ,"fuir", "save", "quit"]
       while action.lower() not in acceptable_actions:
         print("Action inconnue, Essaye encore.\n")
         action = input("> ")
@@ -165,13 +165,8 @@ def move_player(move_dest):
 def Event():
   DeChoix = De10()
   if DeChoix <= 7:
-      bonus = choixItem()
-      if bonus == "ATT":
-            joueur1.ATTAQUE = joueur1.ATTAQUE + 20
-            Combat()
-      elif bonus == "DEF":
-            joueur1.DEFENSE = joueur1.DEFENSE + 20
-            Combat()
+        choixItem()
+        Combat()
   else:
         Item()
 
@@ -180,51 +175,51 @@ def Combat():
       First = FirstBlood()
       i = 1
       while monstre[joueur1.position][HP] > 0:
-                  if First == True:
-                        print("\nTour",i)
-                        DeDeff = De10()
-                        if DeDeff >= 7:
-                              print(monstre[joueur1.position][NOM], "a esquivé votre attaque.")
-                        else:
-                              monstre[joueur1.position][HP] = (monstre[joueur1.position][HP] + monstre[joueur1.position][ATT]) - (joueur1.ATTAQUE + joueur1.ARME[4])
-                              print(monstre[joueur1.position][NOM],"a subi",(joueur1.ATTAQUE + monstre[joueur1.position][RECOMPENSE][4]), "de dégâts.")
-                        DeDeff = De10()
-                        if DeDeff >= 6:
-                              print("Vous avez esquivé l'attaque.")
-                        else:
-                              joueur1.HP = (joueur1.HP + joueur1.DEFENSE + joueur1.ARME[3]) - monstre[joueur1.position][ATT]
-                              print("Vous avez subi", monstre[joueur1.position][ATT], "de dégâts.")
-                        print("Il te reste", joueur1.HP, "de vie.")
-                        print("Il reste", monstre[joueur1.position][HP], "au", monstre[joueur1.position][NOM])
-                        if monstre[joueur1.position][HP] == 0:
-                              monstre[joueur1.position][HP] = hpm
-                              Win()
-                              combatWin()
-                        elif joueur1.HP == 0:
-                              GameOver()
+            if First == True:
+                  print("\nTour",i)
+                  DeDeff = De10()
+                  if DeDeff >= 7:
+                        print(monstre[joueur1.position][NOM], "a esquivé votre attaque.")
                   else:
-                        print("\nTour",i)
-                        DeDeff = De10()
-                        if DeDeff >= 6:
-                              print("Vous avez esquivé l'attaque.")
-                        else:
-                              joueur1.HP = (joueur1.HP + joueur1.DEFENSE + joueur1.ARME[3]) - monstre[joueur1.position][ATT]
-                              print("Vous avez subi", monstre[joueur1.position][ATT], "de dégâts.")
-                        DeDeff = De10()
-                        if DeDeff >= 7:
-                              print(monstre[joueur1.position][NOM], "a esquivé votre attaque.")
-                        else:
-                              monstre[joueur1.position][HP] = (monstre[joueur1.position][HP] + monstre[joueur1.position][ATT]) - (joueur1.ATTAQUE + joueur1.ARME[4])
-                              print(monstre[joueur1.position][NOM],"a subi",joueur1.ATTAQUE, "de dégâts.")
-                        print("Il te reste", joueur1.HP, "de vie.")
-                        print("Il reste", monstre[joueur1.position][HP], "au", monstre[joueur1.position][NOM])
-                        if monstre[joueur1.position][HP] == 0:
-                              monstre[joueur1.position][HP] = hpm
-                              Win()
-                              combatWin()
-                        elif joueur1.HP == 0:
-                              GameOver()
-                  i = i + 1                                                            
+                        monstre[joueur1.position][HP] = (monstre[joueur1.position][HP] + monstre[joueur1.position][ATT]) - joueur1.ATTAQUE
+                        print(monstre[joueur1.position][NOM],"a subi",joueur1.ATTAQUE, "de dégâts.")
+                  DeDeff = De10()
+                  if DeDeff >= 6:
+                        print("Vous avez esquivé l'attaque.")
+                  else:
+                        joueur1.HP = (joueur1.HP + joueur1.DEFENSE) - monstre[joueur1.position][ATT]
+                        print("Vous avez subi", monstre[joueur1.position][ATT], "de dégâts.")
+                  print("Il te reste", joueur1.HP, "de vie.")
+                  print("Il reste", monstre[joueur1.position][HP], "au", monstre[joueur1.position][NOM])
+                  if monstre[joueur1.position][HP] == 0:
+                        monstre[joueur1.position][HP] = hpm
+                        Win()
+                        combatWin()
+                  elif joueur1.HP == 0:
+                        GameOver()
+            else:
+                  print("\nTour",i)
+                  DeDeff = De10()
+                  if DeDeff >= 6:
+                        print("Vous avez esquivé l'attaque.")
+                  else:
+                        joueur1.HP = (joueur1.HP + joueur1.DEFENSE) - monstre[joueur1.position][ATT]
+                        print("Vous avez subi", monstre[joueur1.position][ATT], "de dégâts.")
+                  DeDeff = De10()
+                  if DeDeff >= 7:
+                        print(monstre[joueur1.position][NOM], "a esquivé votre attaque.")
+                  else:
+                        monstre[joueur1.position][HP] = (monstre[joueur1.position][HP] + monstre[joueur1.position][ATT]) - joueur1.ATTAQUE
+                        print(monstre[joueur1.position][NOM],"a subi",joueur1.ATTAQUE, "de dégâts.")
+                  print("Il te reste", joueur1.HP, "de vie.")
+                  print("Il reste", monstre[joueur1.position][HP], "au", monstre[joueur1.position][NOM])
+                  if monstre[joueur1.position][HP] == 0:
+                        monstre[joueur1.position][HP] = hpm
+                        Win()
+                        combatWin()
+                  elif joueur1.HP == 0:
+                        GameOver()
+            i = i + 1                                                            
 
 def FirstBlood():
       DeFirst = De10()
@@ -255,73 +250,31 @@ def Item():
   combatWin()
 
 def choixItem():
-      print("\nUtilisez un Bonus pour le combat ?")
-      print("\n oui / non ")
-      choixI = str(input("> "))
-      if choixI == "oui" or choixI == "o":
-            print("Tu a", len(joueur1.INVENTAIRE[0]), "Bonus d'Attaque.")
-            print("Tu a", len(joueur1.INVENTAIRE[1]), "Bonus de Defense.")
-            print("1 : Bonus d'Attaque.")
-            print("2 : bonus de Defense")
-            choixB = int(input())
-            if choixB == 1:
-                  if len(joueur1.INVENTAIRE[0]) == 0:
-                        print("Pas de bonus")
-                  else:
-                        joueur1.INVENTAIRE[0].pop()
-                        joueur1.ATTAQUE = joueur1.ATTAQUE + 10
-                        return "ATT"
-            elif choixB == 2:
-                  if len(joueur1.INVENTAIRE[1]) == 0:
-                        print("Pas de bonus")
-                  else:
-                        joueur1.INVENTAIRE[1].pop()
-                        joueur1.DEFENSE = joueur1.DEFENSE + 20
-                        return "DEF"
-            else:
-                  print("Je n'ai pas compris!")
-                  choixB = int(input())
-      elif choixI == "non" or choixI == "n":
-            print("combat va commencer")
-            Combat()
-      else:
-            print("Je n'ai pas compris, recommence")
-            choixI = str(input())
+  print("\nUtilisez un Bonus pour le combat ?")
+  print("\n oui / non ")
+  choixI = str(input("> "))
+  if choixI == "oui" or choixI == "o":
+        print("Tu a", len(joueur1.INVENTAIRE[0]), "Bonus d'Attaque.")
+        print("Tu a", len(joueur1.INVENTAIRE[1]), "Bonus de Defense.")
+        Combat()
+  elif choixI == "non" or choixI == "n":
+        Combat()
+  else:
+        print("Je n'ai pas compris, recommence")
+        choixI = str(input())
 
 
 
 def master():
-  print("master")
+  print("maitre")
+  
 
 def De10():
   return randint(1,10)
 
 def Win():
-      print("\ngagné\n")
-      print("Tu a gagné,", monstre[joueur1.position][RECOMPENSE][0])
-      if monstre[joueur1.position][RECOMPENSE][1] > 0:
-            print(monstre[joueur1.position][RECOMPENSE][0], "donne", monstre[joueur1.position][RECOMPENSE][1], "d'xp.")
-      if monstre[joueur1.position][RECOMPENSE][2] > 0:
-            print(monstre[joueur1.position][RECOMPENSE][0], "donne", monstre[joueur1.position][RECOMPENSE][2], "de vie.")
-      if monstre[joueur1.position][RECOMPENSE][3] > 0:
-            print(monstre[joueur1.position][RECOMPENSE][0], "donne", monstre[joueur1.position][RECOMPENSE][3], "de défense.")
-      if monstre[joueur1.position][RECOMPENSE][4] > 0:
-            print(monstre[joueur1.position][RECOMPENSE][0], "donne", monstre[joueur1.position][RECOMPENSE][4], "d'attaque.")
-      print("\nVeux-tu garder cette récompense ?")
-      print("\n oui / non ")
-      choixI = str(input("> "))
-      if choixI == "oui" or choixI == "o":
-            if monstre[joueur1.position][RECOMPENSE][1] > 0:
-                  joueur1.XP = joueur1.XP + monstre[joueur1.position][RECOMPENSE][1]
-            else:
-                  joueur1.ARME = monstre[joueur1.position][RECOMPENSE]
-                  print(joueur1.ARME[0], "est désormais ton arme.")
-      elif choixI == "non" or choixI == "n":
-            combatWin()
-      else:
-            print("Je n'ai pas compris, recommence")
-            choixI = str(input())
-
+  print("\ngagné\n")
+  print("TODO recompense")  
 
 ###########################################################################
 # intro :
@@ -372,7 +325,7 @@ class joueur:
         self.ATTAQUE = 10
         self.position = ""
         self.INVENTAIRE = [[],[]]
-        self.ARME = ["a", 0, 0, 0, 0]
+        self.ARME = []
         self.won = False
 joueur1 = joueur()
 
