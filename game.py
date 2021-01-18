@@ -1,8 +1,10 @@
 import sys
 import os
+from time import sleep
 from random import randint
-from carte import *
-from monstre import *
+from carte3 import *
+from monstre3 import *
+from master3 import *
 screen_width = 100
 
 
@@ -36,6 +38,7 @@ def LancerLeJeux():
 
 def ChargerPartie():
   print("TODO chargerpartir")
+  Menu()
 
 
 def Credits():
@@ -88,6 +91,7 @@ def AffichageAction ():
       if carte[joueur1.position][ACTION] == "combat":
             print("\n", monstre[joueur1.position][NOM], "vient d'apparaitre devant toi!")
             print("Il a", monstre[joueur1.position][HP], "de vie.\n")
+            print("\nTu a", joueur1.HP, " de vie !")
             print("combat")
             print("fuir")
             print("save")
@@ -101,7 +105,11 @@ def AffichageAction ():
             print("save")  
       
 def GameOver():
-      print("GAME OVER !")
+      print("\nGAME OVER !\n")
+      Menu()
+
+def fini():
+      print("\nFélicitation,\n tu a passé avec succès tous les périples de la quête de Yan Shin\n Il est temps pour toi d'enseigner ce que tu a appris et devenir le nouveau maître du temple")
       Menu()
 ###########################################################################
 # Fonction de l'exploration :
@@ -166,14 +174,9 @@ def Event():
   DeChoix = De10()
   if DeChoix <= 7:
       bonus = choixItem()
-      if bonus == "ATT":
-            joueur1.ATTAQUE = joueur1.ATTAQUE + 20
-            Combat()
-      elif bonus == "DEF":
-            joueur1.DEFENSE = joueur1.DEFENSE + 20
-            Combat()
+      Combat()
   else:
-        Item()
+      Item()
 
 def Combat():
       hpm = monstre[joueur1.position][HP]
@@ -196,11 +199,15 @@ def Combat():
                               print("Vous avez subi", monstre[joueur1.position][ATT], "de dégâts.")
                         print("Il te reste", joueur1.HP, "de vie.")
                         print("Il reste", monstre[joueur1.position][HP], "au", monstre[joueur1.position][NOM])
-                        if monstre[joueur1.position][HP] == 0:
+                        if monstre[joueur1.position][HP] <= 0:
                               monstre[joueur1.position][HP] = hpm
-                              Win()
-                              combatWin()
-                        elif joueur1.HP == 0:
+                              joueur1.HP = joueur1.HP + 20
+                              if monstre["Boss"][HP] <= 0:
+                                    fini()
+                              else:
+                                    Win()
+                                    combatWin()
+                        elif joueur1.HP <= 0:
                               GameOver()
                   else:
                         print("\nTour",i)
@@ -218,11 +225,15 @@ def Combat():
                               print(monstre[joueur1.position][NOM],"a subi",joueur1.ATTAQUE, "de dégâts.")
                         print("Il te reste", joueur1.HP, "de vie.")
                         print("Il reste", monstre[joueur1.position][HP], "au", monstre[joueur1.position][NOM])
-                        if monstre[joueur1.position][HP] == 0:
+                        if monstre[joueur1.position][HP] <= 0:
                               monstre[joueur1.position][HP] = hpm
-                              Win()
-                              combatWin()
-                        elif joueur1.HP == 0:
+                              joueur1.HP = joueur1.HP + 20
+                              if monstre["Boss"][HP] <= 0:
+                                    fini()
+                              else:
+                                    Win()
+                                    combatWin()
+                        elif joueur1.HP <= 0:
                               GameOver()
                   i = i + 1                                                            
 
@@ -236,7 +247,6 @@ def FirstBlood():
             return False
 
 def Item():
-  print("TODO Item")
   DeItem = De10()
   if DeItem <= 5:
         if len(joueur1.INVENTAIRE[0]) >= 2:
@@ -267,6 +277,7 @@ def choixItem():
             if choixB == 1:
                   if len(joueur1.INVENTAIRE[0]) == 0:
                         print("Pas de bonus")
+                        Combat()
                   else:
                         joueur1.INVENTAIRE[0].pop()
                         joueur1.ATTAQUE = joueur1.ATTAQUE + 10
@@ -274,6 +285,7 @@ def choixItem():
             elif choixB == 2:
                   if len(joueur1.INVENTAIRE[1]) == 0:
                         print("Pas de bonus")
+                        Combat()
                   else:
                         joueur1.INVENTAIRE[1].pop()
                         joueur1.DEFENSE = joueur1.DEFENSE + 20
@@ -291,7 +303,21 @@ def choixItem():
 
 
 def master():
-  print("master")
+      print(enigme[joueur1.position][HISTOIRE])
+      print("\n")
+      print(enigme[joueur1.position][QUESTION])
+      print("\nQue va-tu répondre ?")
+      for k in enigme[joueur1.position][REPONSE]:
+            print(k)
+      print("\nQue va-tu répondre, 1, 2 ou 3")
+      reponse = int(input("\n>"))
+      if reponse == 2:
+            print("\nTu a bien répondu !")
+            Win()
+      else:
+            print("\nTu na rien écouter, pars !")
+            combatWin()
+
 
 def De10():
   return randint(1,10)
@@ -316,6 +342,7 @@ def Win():
             else:
                   joueur1.ARME = monstre[joueur1.position][RECOMPENSE]
                   print(joueur1.ARME[0], "est désormais ton arme.")
+                  combatWin()
       elif choixI == "non" or choixI == "n":
             combatWin()
       else:
@@ -337,15 +364,15 @@ def choixpays():
     print("indonésie, tapez 3\n")
     Pays = int(input(">"))
     if Pays == 1:
-        print("\nFils Unique du plus grand de tout les samouraïs, \n cherche à devenir plus fort que son père et seul \n la quête vers le dieu yashin lui permettra d'y parvenir...") # depart A1
+        print("\nFils Unique du plus grand de tout les samouraïs, \n cherche à devenir plus fort que son père et seul \n la quête vers le dieu yashin lui permettra d'y parvenir...\n") # depart A1
         print(carte["petit village de pecheur"][DESCRIPTION])
         return "petit village de pecheur"
     elif Pays == 2:
-        print("\nEnfant orphelin de l'empire céleste,\n te voilà décidé à retrouver celui qui tua tes parents et toutes ta famille \n après des années d'entrainement te voilà pret avec un seul mot en bouche VENGEANCE")# depart B13
+        print("\nEnfant orphelin de l'empire céleste,\n te voilà décidé à retrouver celui qui tua tes parents et toutes ta famille \n après des années d'entrainement te voilà pret avec un seul mot en bouche VENGEANCE\n")# depart B13
         print(carte["Grand village de Pêcheur"][DESCRIPTION])
         return "Grand village de Pêcheur"
     elif Pays == 3:
-        print("\nLa seule chose que tu sais en te réveillant au beau milieu de ce village abndonné,\n n'est que ton nom et une voix te disant 'trouve Yashin et tu le saura' ") # depart C16
+        print("\nLa seule chose que tu sais en te réveillant au beau milieu de ce village abndonné,\n n'est que ton nom et une voix te disant 'trouve Yashin et tu le saura' \n") # depart C16
         print(carte["Village de Pêcheur abandonné"][DESCRIPTION])
         return "Village de Pêcheur abandonné"
     else:
@@ -372,45 +399,10 @@ class joueur:
         self.ATTAQUE = 10
         self.position = ""
         self.INVENTAIRE = [[],[]]
-        self.ARME = ["a", 0, 0, 0, 0]
+        self.ARME = ["mains", 0, 0, 0, 0]
         self.won = False
 joueur1 = joueur()
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Menu()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Menu()
